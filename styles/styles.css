@@ -1,19 +1,39 @@
 @media screen and (min-width : 1024px) and (max-width : 1920px){
+	body{
+	height: 100%;
+	background: rgb(2,0,36);
+	background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(36,89,112,1) 34%, rgba(75,255,253,1) 100%);
+	background-repeat : no-repeat;
+	background-attachment: fixed;
+	
+	}
+	
+	.videoContainer video{
+		height:30%;
+		width: 30%;
+		display:inline;
+		float:left;
+	}
+	
 	.heading{
 		width: 100%;
 		height: 10%;
 		padding: 0px;
+		color: white;
 		
 	}
 	.headers{
-		color: black;
-		font-family: Trattatello, fantasy;
+		color: white;
+		font-size: 2vw;
+		text-align: center;
 	}
 
 	.scheme {
-		width: 100vw;
-		background-color : #D6EFFF;
+		width: 100%;
+		background-color : #D6E9FF;
 		display: inline-block;
+		border-radius: 1vw;
+		float:center;
 	}
 	
 	.scheme ul {
@@ -31,17 +51,78 @@
 	.scheme a {
 		text-decoration: none;
 		color : black;
-		padding: 2vw;
+		padding: 1vw;
 		font-family: monospace;
 		display:block;
+		font-size:1vw;
+		text-align: center;
 	}
 	.scheme a:hover{
-		background-color: #C6E9FF;
+		background-color: #06E9FF;
+		border-radius: 0.5vw;
 	}
 
-	.right_panel {
-		width: 10%;
-		height: 10%;
-		float : right;
+	.formPanel {
+		width: 30%;
+		height: 30%;
+		float : left;
+		padding-left : 1%;
+	}
+	
+	.formPanel label {
+		font-size:1vw;
+		color: white;
+		padding: 0.5vw;
+	}
+	.textInput {
+		font-size: 1vw;
+	}
+	
+	.playVideoBtn {
+		display: inline-block;
+		border-radius: 1vw;
+		background-color: #00a18b;
+		border: none;
+		color: #FFFFFF;
+		text-align: center;
+		font-size: 1vw;
+		padding: 0.2vw;
+		width: 7vw;
+		transition: all 0.5s;
+		cursor: pointer;
+		margin: 0.5vw;
+		}
+		
+	.playVideoBtn span {
+		cursor: pointer;
+		display: inline-block;
+		position: relative;
+		transition: 0.5s;
+		}
+		
+	.playVideoBtn span:after {
+		content: '\00bb';
+		position: absolute;
+		opacity: 0;
+		top: 0;
+		right: -1vw;
+		transition: 0.5s;
+		}
+		
+	.playVideoBtn:hover span {
+		padding-right: .75vw;
+		}
+		
+	.playVideoBtn:hover span:after {
+		opacity: 1;
+		right: 0;
+		}
+	
+	.footer{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 3vw;
+	}
+	
 }
-

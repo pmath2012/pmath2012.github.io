@@ -3,9 +3,10 @@
 	<head>
 		<title>WebInt Assignment 3</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="./styles/styles.css">
-		<link rel="stylesheet" href="./styles/styles-mid.css">
-		<link rel="stylesheet" href="./styles/styles-small.css">
+		<script src="./scripts/base.js"></script>
+		<link rel="stylesheet" href="./styles/styles.css"/>
+		<link rel="stylesheet" href="./styles/styles-mid.css"/>
+		<link rel="stylesheet" href="./styles/styles-small.css"/>
 	</head>
 	</body>
 		<section id="heading" class="heading">
@@ -23,19 +24,24 @@
 			</nav>
 		</section>
 		
-		<section id="side_content">
-			<aside class="right_panel">
-				<h2> This is on the side </h2>
+		<section id="videoSection">
+			<figure id="videoContainer" class="videoContainer">
+					<!-- multiple video formats to enable compatibility between different browser capabilities -->
+					<video controls preload="metadata" >
+						<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4" type="video/mp4"/>
+						<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.ogv" type="video/ogg"/>
+						<p>The video tag is incompatible with this browser **Sorry** </p>
+				</video>
+			</figure>
+			<aside class="formPanel">
+				<form>
+					<label>Watch a video you like</label>
+					<input class="textInput" type="text"/>
+					<button type="submit" id="playVideoBtn" class="playVideoBtn"><span>Play Now</span></button>
+				</form>
 			</aside>
-			<p> This works now
 		</section>
-		
-		<section id="video_container">
-			<video controls
-				src="https://upload.wikimedia.org/wikipedia/commons/transcoded/1/16/BuZa-ambtenaren_over_het_tijdelijke_onderkomen_voor_de_Tweede_Kamer_aan_de_Bezuidenhoutseweg.webm/BuZa-ambtenaren_over_het_tijdelijke_onderkomen_voor_de_Tweede_Kamer_aan_de_Bezuidenhoutseweg.webm.480p.vp9.webm"
-			/>
-		</section>
-		<footer>
+		<footer class="footer">
 			This is the footer
 		</footer>
 	</body>
