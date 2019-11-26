@@ -1,0 +1,47 @@
+@media screen and (min-width : 1024px) and (max-width : 1920px){
+	.heading{
+		width: 100%;
+		height: 10%;
+		padding: 0px;
+		
+	}
+	.headers{
+		color: black;
+		font-family: Trattatello, fantasy;
+	}
+
+	.scheme {
+		width: 100vw;
+		background-color : #D6EFFF;
+		display: inline-block;
+	}
+	
+	.scheme ul {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		
+	}
+	.scheme li{
+		list-style-type: none;
+		margin: 0;
+		
+	}
+	
+	.scheme a {
+		text-decoration: none;
+		color : black;
+		padding: 2vw;
+		font-family: monospace;
+		display:block;
+	}
+	.scheme a:hover{
+		background-color: #C6E9FF;
+	}
+
+	.right_panel {
+		width: 10%;
+		height: 10%;
+		float : right;
+}
+

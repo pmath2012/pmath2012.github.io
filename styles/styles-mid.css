@@ -1,0 +1,31 @@
+@media screen and (min-width : 768px) and (max-width : 1024px){
+	.heading{
+		width: 100%
+	}
+	.headers{
+		color: red;
+	}
+	nav {
+		border-bottom : 1px solid black;
+	}
+	.scheme ul{
+		list-style-type : none;
+		padding-left : 0;
+	}
+	
+	.scheme {
+		display: inline-block;
+	}
+	
+	.scheme li {
+		float : left;
+		padding : 2px;
+	}
+	.scheme a::after {
+		display : inline;
+		color : #000;
+		content : '|';
+		font-weight : bold;
+		padding: 0 3px;
+	}
+}
