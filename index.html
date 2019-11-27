@@ -24,10 +24,10 @@
 			</nav>
 		</section>
 		
-		<section id="videoSection">
+		<section id="videoSection" class="videoSection">
 			<figure id="videoContainer" class="videoContainer">
 					<!-- multiple video formats to enable compatibility between different browser capabilities -->
-					<video controls preload="metadata" >
+					<video id="videoPlayer" controls preload="metadata" >
 						<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4" type="video/mp4"/>
 						<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.ogv" type="video/ogg"/>
 						<p>The video tag is incompatible with this browser **Sorry** </p>
@@ -35,9 +35,17 @@
 			</figure>
 			<aside class="formPanel">
 				<form>
-					<label>Watch a video you like</label>
-					<input class="textInput" type="text"/>
-					<button type="submit" id="playVideoBtn" class="playVideoBtn"><span>Play Now</span></button>
+					<table>
+					<tr><td><label class="defaultLabel">Watch a video you like</label></td>
+					<td><input id="videoURL" class="textInput" type="text"/></td>
+					<td><button type="submit" id="playVideoBtn" class="btn"><span>Play Now</span></button></td></tr>
+					<tr><td colspan="3"><label class="errorMessage" id="videoURLError" /> </td></td>
+					<tr><td><label class="defaultLabel">Seek to a point in the video </label></td>
+					<td><input id="seekVal" class="textInput" type="text"/></td>
+					<td><button type="submit" id="seekBtn" class="btn"><span>Seek Now</span></button></td></td>
+					<tr><td colspan="3"><label class="errorMessage" id="seekError" /> </td></td>
+					</table>
+					
 				</form>
 			</aside>
 		</section>
