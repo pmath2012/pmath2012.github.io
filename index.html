@@ -4,6 +4,8 @@
 		<title>WebInt Assignment 3</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="./scripts/base.js"></script>
+		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
 		<link rel="stylesheet" href="./styles/styles.css"/>
 		<link rel="stylesheet" href="./styles/styles-mid.css"/>
 		<link rel="stylesheet" href="./styles/styles-small.css"/>
@@ -25,14 +27,16 @@
 		</section>
 		
 		<section id="videoSection" class="videoSection">
-			<figure id="videoContainer" class="videoContainer">
+			<figure id="videoContainer" >
 					<!-- multiple video formats to enable compatibility between different browser capabilities -->
-					<video id="videoPlayer" controls preload="metadata" >
+					<video class="videoContainer" id="videoPlayer" controls="true" preload="metadata" >
 						<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4" type="video/mp4"/>
 						<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.ogv" type="video/ogg"/>
 						<p>The video tag is incompatible with this browser **Sorry** </p>
 				</video>
 			</figure>
+			<canvas id="videoCanvas" ></canvas>
+			<div class="thumbnail" id="thumbnail-container"></div>
 			<aside class="formPanel">
 				<form>
 					<table>
@@ -44,11 +48,49 @@
 					<td><input id="seekVal" class="textInput" type="text"/></td>
 					<td><button type="submit" id="seekBtn" class="btn"><span>Seek Now</span></button></td></td>
 					<tr><td colspan="3"><label class="errorMessage" id="seekError" /> </td></td>
+					<tr><td><label colspan="2" class="defaultLabel" >View controls</label></td><td>
+					<input type=checkbox checked id="controlsCheck"></input></td></tr>
+					<tr><td><button id="previewBtn" class="btn"><span>Preview</span></td>
+					<td><button id="rotateBtn" class="btn"><span>Rotate</span></td>
+					<td><button id="mirrorBtn" class="btn"><span>Mirror</span></td></tr>
+					
 					</table>
 					
 				</form>
 			</aside>
 		</section>
+		<br>
+		<section id="comments" class="commentsSection">
+			<h2 class="heading"> Comments section </h2>
+			<div class="comments" id="prevComments"> </div>
+			<form id="commentsForm" class="commentsForm">
+				<table class="table" ><tr><td><label class="defaultLabel">Post a comment: </label></td></tr>
+				<tr><td class='big'><input  type="textarea" id="comment" class="comment" ></input></td>
+				<td class='small'><button id="postBtn" class="btn"><span>post</span></td></tr>
+				</table>
+			</form>
+		</section>
+		<div id='signup' class='signup'>
+			<div class="content" >
+				<div class="signupForm">
+				<a id="exit" class="exit">&times;</a>
+				<h2>Sign-up to post a comment</h2>
+				<form>
+				<div>
+					<input type="text" id="fname" placeholder="First Name"/>
+					<input type="text" id="lname" placeholder="Last Name"/>
+					<input type="text" id="email" placeholder="Email"/>
+					<input type="text" id="phone" placeholder="Phone Number"/>
+					<button type="submit" id="login" class="btn"><span>Login</span></button>
+				</div>
+				</form>
+				</div>
+			</div>
+		</div>
+		<details class="mapDetails">
+			<summary>View Map</summary>
+			<div id="mapid" class="mapdiv"></div>
+		</details>
 		<footer class="footer">
 			This is the footer
 		</footer>
