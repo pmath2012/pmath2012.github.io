@@ -1,5 +1,10 @@
 var rot=0;
 const key='pk.eyJ1IjoicG1hdGgiLCJhIjoiY2szajh6aGVqMDRndjNjcXN6Y3VrcHRubiJ9.OoeN_5Xde_mwfTYsoAf5VQ';
+var vid1='https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4';
+var vid2='https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4';
+var vid3='https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4';
+var playlist = ['Mario 2', 'Mario 3','Mario 4'];
+
 var play = function playVideo (e) {
 	e.preventDefault();
 	var videoUrl = document.querySelector('#videoURL');
@@ -197,7 +202,50 @@ function now(){
 	return d.getDate()+'-'+d.getMonth()+'-'+d.getFullYear()+"  "+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
 }
 
+function loadMap(){
+	var lon = localStorage.getItem('lon');
+	var lat = localStorage.getItem('lat');
+	if (!!lat && !!lon){
+		var mymap = L.map('mapid').setView([lat, lon], 13);
+		L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    accessToken: key
+}).addTo(mymap);
+		var marker = L.marker([lat, lon]).addTo(mymap);
+	}
+}
 
+function loadComments(){
+	var comments = localStorage.getItem('comments');
+	var prevComments=document.querySelector('#prevComments');
+	if (!!comments){
+		prevComments.innerHTML = comments;
+	}
+}
+
+function jukebox(){
+	
+	var jukeboxVids = document.querySelectorAll('.jukeboxVid');
+	var video = document.querySelector('#videoPlayer');
+	video.onprogress = function(){
+		document.querySelector('#nextPlay').innerHTML='Playing Next :'+playlist[0];
+	}
+	video.onended = function(){
+		jukeboxVids[0].play();
+	}
+	for (var i=0; i<jukeboxVids.length-1 ; i++){
+		var vid = jukeboxVids[i];
+		var nextVid = jukeboxVids[i+1];
+		vid.onprogress = function(){
+			document.querySelector('#nextPlay').innerHTML='Playing Next :'+playlist[i+1];
+		}
+		vid.onended = function(){
+			nextVid.play();
+		}
+	}
+}
 
 document.addEventListener("DOMContentLoaded", function(){
 	var playVideoBtn = document.querySelector('#playVideoBtn');
@@ -219,21 +267,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	var exitBtn = document.querySelector('#exit');
 	exitBtn.addEventListener('click',closePopup);
 	
-	var comments = localStorage.getItem('comments');
-	var prevComments=document.querySelector('#prevComments');
-	if (!!comments){
-		prevComments.innerHTML = comments;
-	}
-	var lon = localStorage.getItem('lon');
-	var lat = localStorage.getItem('lat');
-	if (!!lat && !!lon){
-		var mymap = L.map('mapid').setView([lat, lon], 13);
-		L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    accessToken: key
-}).addTo(mymap);
-		var marker = L.marker([lat, lon]).addTo(mymap);
-	}
+	loadComments();
+	loadMap();
+	jukebox();
 });

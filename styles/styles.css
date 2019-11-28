@@ -250,7 +250,20 @@
 		height:300px;
 		width: 500px;
 	}
-	.mapDetails{
-		display:inline;
+	.jukebox{
+		border-style:solid;
+		border-width:0.1vw;
+		border-color:#ffee11;
+		padding:1vw;
+		display:inline-block;
 	}
+	.jukeboxVid{
+		padding:1vw;
+		display: inline;
+		float: left;
+	}
+	#nextPlay{
+		color: white;
+	}
+	
 }
