@@ -234,5 +234,6 @@ document.addEventListener("DOMContentLoaded", function(){
     id: 'mapbox/streets-v11',
     accessToken: key
 }).addTo(mymap);
+		var marker = L.marker([lat, lon]).addTo(mymap);
 	}
 });
