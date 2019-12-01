@@ -1,9 +1,6 @@
 var rot=0;
 const key='pk.eyJ1IjoicG1hdGgiLCJhIjoiY2szajh6aGVqMDRndjNjcXN6Y3VrcHRubiJ9.OoeN_5Xde_mwfTYsoAf5VQ';
-var vid1='https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4';
-var vid2='https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4';
-var vid3='https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4';
-var playlist = ['Mario 2', 'Mario 3','Mario 4'];
+var playlist = ['San Andreas', 'Devil May Cry 3','Max Payne'];
 
 // Play url video
 var play = function playVideo (e) {
@@ -105,7 +102,11 @@ var mirror = function mirror (e){
 		if(!video.ended|| !video.paused){
 			canvas.getContext("2d").drawImage(video, 0,0, video.offsetWidth, video.offsetHeight);
 			var img = new Image();
-			img.src = canvas.toDataURL();
+			try{
+				img.src = canvas.toDataURL();
+			}catch(e){
+			//Ignoring errors
+			}
 			img.width = '100%';
 			img.height= '100%';
 			thumbnail.appendChild(img);
@@ -170,7 +171,6 @@ var closePopup = function closePopup(){
 //Signup functionality
 var signup = function signup(e){
 	e.preventDefault();
-	console.log('here');
 	var fname = document.querySelector('#fname');
 	var lname = document.querySelector('#lname');
 	var email = document.querySelector('#email');
@@ -198,6 +198,19 @@ var signup = function signup(e){
 		return false;
 	}
 	
+}
+
+var displayBubbleVid = function displayBubbleVid(e){
+	e.preventDefault();
+	var vid = document.querySelector('#bubbleVid');
+	vid.style.display = 'inline-block';
+	vid.play();
+	var dispBtn = document.querySelector('#bubbleVidBtn');
+	dispBtn.style.display = 'none';
+	vid.onended = function(){
+		dispBtn.style.display = 'inline-block';
+		vid.style.display = 'none';
+	}
 }
 
 //using a generic testing function to validate email address
@@ -274,6 +287,7 @@ function jukebox(){
 	}
 }
 
+
 document.addEventListener("DOMContentLoaded", function(){
 	var playVideoBtn = document.querySelector('#playVideoBtn');
 	playVideoBtn.addEventListener('click',play);
@@ -293,6 +307,18 @@ document.addEventListener("DOMContentLoaded", function(){
 	login.addEventListener('click',signup);
 	var exitBtn = document.querySelector('#exit');
 	exitBtn.addEventListener('click',closePopup);
+	var bubbleBtn = document.querySelector('#bubbleVidBtn');
+	bubbleBtn.addEventListener('click',displayBubbleVid);
+	
+	var vid1 = document.querySelector('#vid1');
+	var vid2 = document.querySelector('#vid2');
+	var vid3 = document.querySelector('#vid3');
+	var vid4 = document.querySelector('#vid4');
+	
+	vid1.addEventListener('click', function (){ var vid = document.querySelector('#videoPlayer'); vid.play()});
+	vid2.addEventListener('click', function (){ var vid = document.querySelector('#videoPlayer2'); vid.play()});
+	vid3.addEventListener('click', function (){ var vid = document.querySelector('#videoPlayer3'); vid.play()});
+	vid4.addEventListener('click', function (){ var vid = document.querySelector('#videoPlayer4'); vid.play()});
 	
 	loadComments();
 	loadMap();

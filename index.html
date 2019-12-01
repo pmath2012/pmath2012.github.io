@@ -11,17 +11,18 @@
 		<link rel="stylesheet" href="./styles/styles-small.css"/>
 	</head>
 	</body>
+	<div class="wrapper">
 		<section id="heading" class="heading">
 			<article>
-				<header class="headers"><h1> Experience the ages </h1> </header>
+				<header class="headers"><h1> Gaming Nostalgia </h1> </header>
 			</article>
 			
 			<nav class="scheme" > 			
 				<ul > 
-					<li class="scheme"> <a href="now">now </a> </li>
-					<li class="scheme"> <a href="t1950">1950s </a> </li>
-					<li class="scheme"> <a href="t1980">1980s </a> </li>
-					<li class="scheme"> <a href="t2050">2050s </a> </li>
+					<li class="scheme"> <a id="vid1" href="/"> Mario </a> </li>
+					<li class="scheme"> <a id="vid2" href="/"> GTA San Andreas </a> </li>
+					<li class="scheme"> <a id="vid3" href="/"> Devil May Cry 3 </a> </li>
+					<li class="scheme"> <a id="vid4" href="/"> Max Payne</a> </li>
 				</ul>
 			</nav>
 		</section>
@@ -35,8 +36,6 @@
 						<p>The video tag is incompatible with this browser **Sorry** </p>
 				</video>
 			</figure>
-			<canvas id="videoCanvas" ></canvas>
-			<div class="thumbnail" id="thumbnail-container"></div>
 			<aside class="formPanel">
 				<form>
 					<table>
@@ -58,28 +57,41 @@
 					
 				</form>
 			</aside>
+			<canvas id="videoCanvas" ></canvas>
+			<div class="thumbnail" id="thumbnail-container"></div>
 		</section>
 		<br>
-		<section id="jukebox" >
+		<table id="jukebox" class="section2">
+		<tr><td class="big" >
 			<div id="nextPlay">Playing Next </div>
 			<div id="jukeboxDiv" class="jukebox">
 				<video class="jukeboxVid" id="videoPlayer2" controls="true" preload="metadata" >
-						<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4" type="video/mp4"/>
-						<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.ogv" type="video/ogg"/>
+						<source src="https://archive.org/download/GrandTheftAutoSA_746/GrandTheftAutoSA_746_LQ_part01.ogv" type="video/ogg"/>
+						<source src="https://archive.org/download/GrandTheftAutoSA_746/GrandTheftAutoSA_746_LQ_part01_512kb.mp4" type="video/mp4"/>
 						<p>The video tag is incompatible with this browser **Sorry** </p>
 				</video>
 				<video class="jukeboxVid" id="videoPlayer3" controls="true" preload="metadata" >
-						<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4" type="video/mp4"/>
-						<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.ogv" type="video/ogg"/>
+						<source src="https://archive.org/download/DevilMayCry3_22953/DevilMayCry3_22953_HQ_part1_512kb.mp4" type="video/mp4"/>
+						<source src="https://archive.org/download/DevilMayCry3_22953/DevilMayCry3_22953_LQ_part1.ogv" type="video/ogg"/>
 						<p>The video tag is incompatible with this browser **Sorry** </p>
 				</video>
 				<video class="jukeboxVid" id="videoPlayer4" controls="true" preload="metadata" >
-						<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4" type="video/mp4"/>
-						<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.ogv" type="video/ogg"/>
+						<source src="https://archive.org/download/MaxPayne_NYminute/MaxPayne_NYM_p1c1_133_512kb.mp4" type="video/mp4"/>
+						<source src="https://archive.org/download/MaxPayne_NYminute/MaxPayne_NYM_p1c1_133.ogv" type="video/ogg"/>
 						<p>The video tag is incompatible with this browser **Sorry** </p>
 				</video>
 			</div>
-		</section>
+		</td>
+		<td id="videoBubble">
+			<div class="vidBubble">
+			<button id="bubbleVidBtn" class="btn"><span> Play Video In a bubble </span></button>
+			<video controls preload class="bubbleVid" id="bubbleVid">
+				<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4" type="video/mp4"/>
+				<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.ogv" type="video/ogg"/>
+				<p>The video tag is incompatible with this browser **Sorry** </p>
+			</video>
+		</td></tr>
+		</table>
 		<br>
 		<section id="comments" class="commentsSection">
 			<h2 class="heading"> Comments section </h2>
@@ -108,12 +120,14 @@
 				</div>
 			</div>
 		</div>
-		<details>
+		
+		<details class="details">
 			<summary>View Map</summary>
 			<div id="mapid" class="mapdiv"></div>
 		</details>
+		</div>
 		<footer class="footer">
-			This is the footer
+			<p>WebInt Assignment 3
 		</footer>
 	</body>
 </html>
