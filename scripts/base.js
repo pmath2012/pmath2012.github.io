@@ -5,6 +5,7 @@ var vid2='https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4';
 var vid3='https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4';
 var playlist = ['Mario 2', 'Mario 3','Mario 4'];
 
+// Play url video
 var play = function playVideo (e) {
 	e.preventDefault();
 	var videoUrl = document.querySelector('#videoURL');
@@ -32,6 +33,7 @@ var play = function playVideo (e) {
 	}
 }
 
+//seek to position functionality
 var seek = function seekVideo(e) {
 	e.preventDefault();
 	var seekVal = document.querySelector('#seekVal');
@@ -56,6 +58,7 @@ var seek = function seekVideo(e) {
 	}
 }
 
+// Load preview of image. This doesn't work when mirror is turned on
 var preview = function takePreview(e) {
 	e.preventDefault();
 	var canvas = document.querySelector('#videoCanvas');
@@ -65,10 +68,15 @@ var preview = function takePreview(e) {
 	canvas.height = video.offsetHeight;
 	canvas.getContext("2d").drawImage(video, 0,0, video.offsetWidth, video.offsetHeight);
 	var img = new Image();
-	img.src = canvas.toDataURL();
+	try{
+		img.src = canvas.toDataURL();
+	}catch(e){
+		//Ignoring errors
+	}
 	thumbnail.appendChild(img);
 }
 
+//rotate videos
 var rotate = function rotate(e) {
 	e.preventDefault();
 	var video = document.querySelector('#videoPlayer');
@@ -77,6 +85,7 @@ var rotate = function rotate(e) {
 	video.setAttribute('style',str);
 }
 
+// toggle video controls
 var toggleControls = function toggleControls(e){
 	e.preventDefault();
 	var video = document.querySelector('#videoPlayer');
@@ -84,6 +93,7 @@ var toggleControls = function toggleControls(e){
 	video.controls = !controls;
 }
 
+// Adding mirror functionality
 var mirror = function mirror (e){
 	e.preventDefault();
 	var video = document.querySelector('#videoPlayer');
@@ -103,6 +113,7 @@ var mirror = function mirror (e){
 	},10);	
 }
 
+// Adding comments functionality
 var commentHandler = function commentHandler(e){
 	e.preventDefault();
 	var fname = localStorage.getItem('fname');
@@ -150,11 +161,13 @@ var commentHandler = function commentHandler(e){
 	}
 }
 
+// Close signup display
 var closePopup = function closePopup(){
 	var popup = document.querySelector('#signup');
 	popup.style.display='none';
 }
 
+//Signup functionality
 var signup = function signup(e){
 	e.preventDefault();
 	console.log('here');
@@ -197,11 +210,14 @@ function validEmail(email)
     return (false)
 }
 
+
+// get local date for comments
 function now(){
 	let d = new Date();
 	return d.getDate()+'-'+d.getMonth()+'-'+d.getFullYear()+"  "+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
 }
 
+// Load map functionality
 function loadMap(){
 	var lon = localStorage.getItem('lon');
 	var lat = localStorage.getItem('lat');
@@ -217,6 +233,7 @@ function loadMap(){
 	}
 }
 
+// Load previous comments from local storage
 function loadComments(){
 	var comments = localStorage.getItem('comments');
 	var prevComments=document.querySelector('#prevComments');
@@ -225,25 +242,35 @@ function loadComments(){
 	}
 }
 
+// Functionality for the jukebox 
 function jukebox(){
 	
-	var jukeboxVids = document.querySelectorAll('.jukeboxVid');
+	//Initial version of the code used querySelectorAll to get all the videos
+	//The autoplay functionality didn't seem to work in a loop.
+	var jukeboxVid1 = document.querySelector('#videoPlayer2');
+	var jukeboxVid2 = document.querySelector('#videoPlayer3');
+	var jukeboxVid3 = document.querySelector('#videoPlayer4');
 	var video = document.querySelector('#videoPlayer');
-	video.onprogress = function(){
+	video.onplay = function(){
 		document.querySelector('#nextPlay').innerHTML='Playing Next :'+playlist[0];
 	}
 	video.onended = function(){
-		jukeboxVids[0].play();
+		jukeboxVid1.play();
 	}
-	for (var i=0; i<jukeboxVids.length-1 ; i++){
-		var vid = jukeboxVids[i];
-		var nextVid = jukeboxVids[i+1];
-		vid.onprogress = function(){
-			document.querySelector('#nextPlay').innerHTML='Playing Next :'+playlist[i+1];
-		}
-		vid.onended = function(){
-			nextVid.play();
-		}
+	jukeboxVid1.onplay = function(){
+		document.querySelector('#nextPlay').innerHTML='Playing Next :'+playlist[1];
+	}
+	jukeboxVid1.onended = function(){
+		jukeboxVid2.play();
+	}
+	jukeboxVid2.onplay = function(){
+		document.querySelector('#nextPlay').innerHTML='Playing Next :'+playlist[2];
+	}
+	jukeboxVid2.onended = function(){
+		jukeboxVid3.play();
+	}
+	jukeboxVid3.onplay = function(){
+		document.querySelector('#nextPlay').innerHTML='Last Video';
 	}
 }
 
