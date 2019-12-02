@@ -1,4 +1,4 @@
-@media screen and (min-width : 768px) and (max-width : 1024px){
+@media screen and (min-width : 100px) and (max-width : 1024px){
 	body{
 	height: 100%;
 	background: rgb(2,0,36);
@@ -10,6 +10,8 @@
 	
 	
 	.videoSection{
+		display:flex;
+		flex-direction:column;
 		overflow:hidden;
 	}
 	
@@ -56,15 +58,16 @@
 	.scheme {
 		width: 100%;
 		background-color : #D6E9FF;
-		display: inline-block;
+		display: flex;
+		flex-direction:column;
 		border-radius: 1vw;
-		float:center;
 	}
 	
 	.scheme ul {
 		margin: 0;
 		padding: 0;
 		display: flex;
+		flex-direction: column;
 		
 	}
 	.scheme li{
@@ -123,7 +126,6 @@
 		transition: all 0.5s;
 		cursor: pointer;
 		margin: 0.5vw;
-		float:center;
 		}
 		
 	.btn span {
@@ -258,7 +260,8 @@
 		border-width:0.1vw;
 		border-color:#ffffee;
 		padding:1vw;
-		display:inline-block;
+		display:flex;
+		flex-direction:column;
 	}
 	.jukeboxVid{
 		height: 40%;
@@ -289,6 +292,6 @@
 	
 	.section2{
 		display:flex;
-		flex-direction:vertical;
+		flex-direction:column;
 	}
 }

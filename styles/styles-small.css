@@ -1,5 +1,8 @@
-@media screen and (min-width : 200px) and (max-width : 768px){
-	body{
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) {
+body{
 	height: 100%;
 	background: rgb(2,0,36);
 	background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(36,89,112,1) 34%, rgba(75,255,253,1) 100%);
@@ -10,6 +13,8 @@
 	
 	
 	.videoSection{
+		display:flex;
+		flex-direction:column;
 		overflow:hidden;
 	}
 	
@@ -56,15 +61,16 @@
 	.scheme {
 		width: 100%;
 		background-color : #D6E9FF;
-		display: inline-block;
+		display: flex;
+		flex-direction:column;
 		border-radius: 1vw;
-		float:center;
 	}
 	
 	.scheme ul {
 		margin: 0;
 		padding: 0;
 		display: flex;
+		flex-direction: column;
 		
 	}
 	.scheme li{
@@ -123,7 +129,6 @@
 		transition: all 0.5s;
 		cursor: pointer;
 		margin: 0.5vw;
-		float:center;
 		}
 		
 	.btn span {
@@ -186,7 +191,7 @@
 
 	.big{
 		margin: auto;
-		width: 50%;
+		width: 80%;
 	}
 	.small{
 		width: 20%;
@@ -290,6 +295,6 @@
 	
 	.section2{
 		display:flex;
-		flex-direction:vertical;
+		flex-direction:column;
 	}
 }

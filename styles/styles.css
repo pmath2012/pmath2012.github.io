@@ -58,7 +58,6 @@
 		background-color : #D6E9FF;
 		display: inline-block;
 		border-radius: 1vw;
-		float:center;
 	}
 	
 	.scheme ul {
@@ -123,7 +122,6 @@
 		transition: all 0.5s;
 		cursor: pointer;
 		margin: 0.5vw;
-		float:center;
 		}
 		
 	.btn span {

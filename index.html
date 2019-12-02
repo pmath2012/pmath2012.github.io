@@ -10,12 +10,10 @@
 		<link rel="stylesheet" href="./styles/styles-mid.css"/>
 		<link rel="stylesheet" href="./styles/styles-small.css"/>
 	</head>
-	</body>
+	<body>
 	<div class="wrapper">
 		<section id="heading" class="heading">
-			<article>
-				<header class="headers"><h1> Gaming Nostalgia </h1> </header>
-			</article>
+			<header class="headers"><h2> Gaming Nostalgia </h2> </header>
 			
 			<nav class="scheme" > 			
 				<ul > 
@@ -30,7 +28,7 @@
 		<section id="videoSection" class="videoSection">
 			<figure id="videoContainer" >
 					<!-- multiple video formats to enable compatibility between different browser capabilities -->
-					<video class="videoContainer" id="videoPlayer" controls="true" preload="metadata" >
+					<video class="videoContainer" id="videoPlayer" controls preload="metadata" >
 						<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.mp4" type="video/mp4"/>
 						<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.ogv" type="video/ogg"/>
 						<p>The video tag is incompatible with this browser **Sorry** </p>
@@ -42,16 +40,16 @@
 					<tr><td><label class="defaultLabel">Watch a video you like</label></td>
 					<td><input id="videoURL" class="textInput" type="text"/></td>
 					<td><button type="submit" id="playVideoBtn" class="btn"><span>Play Now</span></button></td></tr>
-					<tr><td colspan="3"><label class="errorMessage" id="videoURLError" /> </td></td>
+					<tr><td colspan="3"><label class="errorMessage" id="videoURLError" ></label> </td></tr>
 					<tr><td><label class="defaultLabel">Seek to a point in the video </label></td>
 					<td><input id="seekVal" class="textInput" type="text"/></td>
-					<td><button type="submit" id="seekBtn" class="btn"><span>Seek Now</span></button></td></td>
-					<tr><td colspan="3"><label class="errorMessage" id="seekError" /> </td></td>
-					<tr><td><label colspan="2" class="defaultLabel" >View controls</label></td><td>
-					<input type=checkbox checked id="controlsCheck"></input></td></tr>
-					<tr><td><button id="previewBtn" class="btn"><span>Preview</span></td>
-					<td><button id="rotateBtn" class="btn"><span>Rotate</span></td>
-					<td><button id="mirrorBtn" class="btn"><span>Mirror</span></td></tr>
+					<td><button type="submit" id="seekBtn" class="btn"><span>Seek Now</span></button></td></tr>
+					<tr><td colspan="3"><label class="errorMessage" id="seekError" ></label> </td></tr>
+					<tr><td colspan="2" ><label  class="defaultLabel" >View controls</label></td>
+					<td><input type=checkbox checked id="controlsCheck"/></td></tr>
+					<tr><td><button id="previewBtn" class="btn"><span>Preview</span></button></td>
+					<td><button id="rotateBtn" class="btn"><span>Rotate</span></button></td>
+					<td><button id="mirrorBtn" class="btn"><span>Mirror</span></button></td></tr>
 					
 					</table>
 					
@@ -65,17 +63,17 @@
 		<tr><td class="big" >
 			<div id="nextPlay">Playing Next </div>
 			<div id="jukeboxDiv" class="jukebox">
-				<video class="jukeboxVid" id="videoPlayer2" controls="true" preload="metadata" >
+				<video class="jukeboxVid" id="videoPlayer2" controls preload="metadata" >
 						<source src="https://archive.org/download/GrandTheftAutoSA_746/GrandTheftAutoSA_746_LQ_part01.ogv" type="video/ogg"/>
 						<source src="https://archive.org/download/GrandTheftAutoSA_746/GrandTheftAutoSA_746_LQ_part01_512kb.mp4" type="video/mp4"/>
 						<p>The video tag is incompatible with this browser **Sorry** </p>
 				</video>
-				<video class="jukeboxVid" id="videoPlayer3" controls="true" preload="metadata" >
+				<video class="jukeboxVid" id="videoPlayer3" controls preload="metadata" >
 						<source src="https://archive.org/download/DevilMayCry3_22953/DevilMayCry3_22953_HQ_part1_512kb.mp4" type="video/mp4"/>
 						<source src="https://archive.org/download/DevilMayCry3_22953/DevilMayCry3_22953_LQ_part1.ogv" type="video/ogg"/>
 						<p>The video tag is incompatible with this browser **Sorry** </p>
 				</video>
-				<video class="jukeboxVid" id="videoPlayer4" controls="true" preload="metadata" >
+				<video class="jukeboxVid" id="videoPlayer4" controls preload="metadata" >
 						<source src="https://archive.org/download/MaxPayne_NYminute/MaxPayne_NYM_p1c1_133_512kb.mp4" type="video/mp4"/>
 						<source src="https://archive.org/download/MaxPayne_NYminute/MaxPayne_NYM_p1c1_133.ogv" type="video/ogg"/>
 						<p>The video tag is incompatible with this browser **Sorry** </p>
@@ -90,6 +88,7 @@
 				<source src="https://archive.org/download/Mario1_500/Mario1_500_LQ.ogv" type="video/ogg"/>
 				<p>The video tag is incompatible with this browser **Sorry** </p>
 			</video>
+			</div>
 		</td></tr>
 		</table>
 		<br>
@@ -97,9 +96,9 @@
 			<h2 class="heading"> Comments section </h2>
 			<div class="comments" id="prevComments"> </div>
 			<form id="commentsForm" class="commentsForm">
-				<table class="table" ><tr><td><label class="defaultLabel">Post a comment: </label></td></tr>
-				<tr><td class='big'><input  type="textarea" id="comment" class="comment" ></input></td>
-				<td class='small'><button id="postBtn" class="btn"><span>post</span></td></tr>
+				<table class="table" ><tr><td><label class="defaultLabel">Post a comment: </label></td><td></td></tr>
+				<tr><td class='big'><textarea id="comment" class="comment" rows="1" ></textarea></td>
+				<td class='small'><button id="postBtn" class="btn"><span>post</span></button></td></tr>
 				</table>
 			</form>
 		</section>
