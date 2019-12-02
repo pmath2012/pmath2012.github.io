@@ -315,10 +315,10 @@ document.addEventListener("DOMContentLoaded", function(){
 	var vid3 = document.querySelector('#vid3');
 	var vid4 = document.querySelector('#vid4');
 	
-	vid1.addEventListener('click', function (){ var vid = document.querySelector('#videoPlayer'); vid.play()});
-	vid2.addEventListener('click', function (){ var vid = document.querySelector('#videoPlayer2'); vid.play()});
-	vid3.addEventListener('click', function (){ var vid = document.querySelector('#videoPlayer3'); vid.play()});
-	vid4.addEventListener('click', function (){ var vid = document.querySelector('#videoPlayer4'); vid.play()});
+	vid1.addEventListener('click', function (e){ e.preventDefault(); var vid = document.querySelector('#videoPlayer'); vid.play()});
+	vid2.addEventListener('click', function (e){  e.preventDefault(); var vid = document.querySelector('#videoPlayer2'); vid.play()});
+	vid3.addEventListener('click', function (e){  e.preventDefault(); var vid = document.querySelector('#videoPlayer3'); vid.play()});
+	vid4.addEventListener('click', function (e){  e.preventDefault(); var vid = document.querySelector('#videoPlayer4'); vid.play()});
 	
 	loadComments();
 	loadMap();
