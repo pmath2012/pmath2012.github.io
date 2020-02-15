@@ -16,8 +16,8 @@
 	}
 	
 	.videoContainer {
-		height:30%;
-		width: 30%;
+		height:80%;
+		width: 80;
 		display:inline;
 		float:left;
 		overflow:hidden;
@@ -264,8 +264,8 @@
 		flex-direction:column;
 	}
 	.jukeboxVid{
-		height: 40%;
-		width: 30%;
+		height: 50%;
+		width: 80%;
 		padding:1vw;
 		display: inline;
 		float: left;
