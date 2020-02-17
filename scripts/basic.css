@@ -21,7 +21,7 @@ body {
     font-size: 30px; 
     text-align: center; 
     width: 75%; 						/* divider width */
-    margin: 40px auto;					/* spacing above/below */
+    margin: 10px auto;					/* spacing above/below */
 }
 .divider span { display: table-cell; position: relative; }
 .divider span:first-child, .divider span:last-child {
@@ -65,4 +65,19 @@ body {
 .mainBody title{
 	
 	font-size:210px;
+}
+ul{
+	float: middle;
+}
+li {
+	padding-top: 5%;
+	list-style: none;
+	display: inline-block;	
+}
+
+.icon{
+	width: 15%;
+	height: 15%;
+	padding-bottom: 4%;
+	padding-left: 1%;
 }

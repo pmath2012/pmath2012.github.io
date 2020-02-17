@@ -15,6 +15,7 @@
       rel="stylesheet"
       href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"
     />
+
 	<link href='https://fonts.googleapis.com/css?family=Bilbo Swash Caps' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Farsan' rel='stylesheet'>
 	<link
@@ -29,13 +30,18 @@
     <!-- Required scripts -->
     <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
-	
 </HEAD>
 <BODY>
     <div id="app">
       <b-container>
-        <b-jumbotron class="text-center" fluid container-fluid bg-variant="transparent" text-variant="dark" border-variant="light" header="Prateek Mathur" lead="Master of Science in Autonomous systems">
-
+        <b-jumbotron style="padding-bottom: 2px;" class="text-center" fluid container-fluid bg-variant="transparent" text-variant="dark" border-variant="light" header="Prateek Mathur" lead="Master of Science in Autonomous systems">
+		<b-img-lazy center rounded="circle" width="200vw" height="auto" src="images/photo.jpg">	
+		</b-img-lazy>
+		<ul>
+		<li> <b-link href="https://www.linkedin.com/in/pmath2012/"><b-img-lazy class="icon" src="images/linkedin.png"></b-img-lazy></b-link> </li>
+		<li> <b-link href="https://www.facebook.com/prateek.mathur.503"><b-img-lazy class="icon" src="images/fb.png"></b-img-lazy></b-link> </li>
+		<li> <b-link href="https://www.instagram.com/prateekmathur21/"><b-img-lazy class="icon" src="images/insta.png"></b-img-lazy></b-link> </li>		
+		</ul>
 		</b-jumbotron>
 		<div class="divider"><span></span><span>About Me</span><span></span></div>
 	    <b-card
@@ -43,13 +49,23 @@
 		bg-variant="transparent"
 		border-variant="light"
 		>
-		<b-img-lazy block right width="200vw" height="auto" src="images/photo.jpg">
-			
-		</b-img-lazy>
+
           <b-card-text class="aboutText">
-		  I am an engineer in the making currently enrolled in the EIT digital master school programme MSc. in Autonomous Systems. I have completed the first year of my masters at KTH Royal Institute of technology in Sweden and currently pursuing my final year of studies at EURECOM in France.
+		  {{ intro }} 
+		  </b-card-text>
+		  <b-card-text class="aboutText">
+		  {{ interestsLine }}
 		  </b-card-text>
 	  </b-card>
+	  <div class="divider"><span></span><span>My Interests</span><span></span></div>
+		<b-card-group deck>
+			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Machine Learning Applications" class="text-center">
+				<b-card-text>{{ machineLearningIntr }} </b-card-text>
+			</b-card>
+			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Communication Systems" class="text-center">
+				<b-card-text>Please click here for more details </b-card-text>
+			</b-card>
+		</b-card-group>	
       </b-container>	  
     </div>
 
@@ -58,7 +74,9 @@
       window.app = new Vue({
         el: '#app',
         data: {
-          name: ''
+          intro: 'I am an engineer in the making currently enrolled in the EIT digital master school programme MSc. in Autonomous Systems. I have completed the first year of my masters at KTH Royal Institute of technology in Sweden and currently pursuing my final year of studies at EURECOM in France.',
+		  interestsLine : 'I will undertake an internship at École normale supérieure from March 2020 to September 2020, I am interested in furthering my academic career in form of a Phd.',
+		  machineLearningIntr: ' I have followed several courses in Machine Learning at KTH and taken up several projects.'
         },
         computed: {
           showAlert() {
