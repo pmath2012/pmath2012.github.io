@@ -40,7 +40,7 @@
 		    <b-nav-item href="#interests"> Interests </b-nav-item>
 		    <b-nav-item href="#skills"> Skills </b-nav-item>
 		</b-nav>
-		<b-jumbotron style="padding-bottom: 2px;" class="text-center" fluid container-fluid bg-variant="transparent" text-variant="dark" border-variant="light" header="Prateek Mathur" lead="Master of Science in Autonomous systems">
+		<b-jumbotron style="padding-bottom: 2px;" class="jumbo"  fluid container-fluid bg-variant="transparent" text-variant="dark" border-variant="light" header="Prateek Mathur" lead="Master of Science in Autonomous systems">
 		<b-img-lazy center rounded="circle" width="200vw" height="auto" src="images/photo.jpg">	
 		</b-img-lazy>
 		<ul>
@@ -133,9 +133,9 @@
 		<div id="Projects" class="divider"><span></span><span>My Projects</span><span></span></div>
 		<b-card bg-variant="transparent" border-variant="light" text-variant="dark" title="Segmenting Blood Vessels in Brain Images" sub-title="Oct-2020 to Feb-2020" class="projectDesc">
 			<b-card-text>
-			Brain Vessels are tortuous structures and it is very difficult to use traditional techniques for semantic segmentation in brain images.
-			In this project we explore several techniques that aim at segmenting small objects in large datasets. We used PyTorch, Tensorflow and Keras for different stages of our development process and used Colab for development environment.
+				{{ brainvesseldescr }}
 			</b-card-text>
+			<b-img-lazy src="images/brain.png"></b-img-lazy>
 		</b-card>
       </b-container>	  
     </div>
@@ -152,7 +152,7 @@
 		  imProcIntr: ' The field of image processing is very interesting to me. With its direct application in autonomous driving and medical imaging. I have followed a semester project in brain vessel segmentation which used a 2D U-Net architecture',
 		  mastersIntr: ' EIT Digital Masters Program : 2018-2019 KTH Royal Institute of Technology, 2019-2020 EURECOM',
 		  bachelorsIntr: ' Bachelors in Electronics and Communications Engineering with focus on Wireless Communications. From 2011-2015.',
-		  java: ''
+		  brainvesseldescr: 'Brain Vessels are tortuous structures and it is very difficult to use traditional techniques for semantic segmentation in brain images. In this project we explore several techniques that aim at segmenting small objects in large datasets. We used PyTorch, Tensorflow and Keras for different stages of our development process and used Colab for development environment. We were able to achieve an average dice score of 0.782'
         },
         computed: {
         }
