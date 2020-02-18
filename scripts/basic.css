@@ -56,12 +56,12 @@ body {
         }
 		
 .aboutText{
-	font-family: 'Farsan';font-size: 22px;
+	font-family: 'Farsan';font-size: 2vw;
 	
 }
 
 .projectDesc{
-	font-family: 'Farsan';font-size: 22px;
+	font-family: 'Farsan';font-size: 2vw;
 	
 }
 .mainBody{
@@ -71,20 +71,18 @@ body {
 	
 	font-size:210px;
 }
-ul{
-	float: middle;
-}
+
 li {
 	padding-top: 5%;
 	list-style: none;
-	display: inline-block;	
+	display: inline;
+	left: 0%;
 }
 
 .icon{
-	width: 15%;
-	height: 15%;
-	padding-bottom: 4%;
-	padding-left: 1%;
+	width: 3vw;
+	height: auto;
+	padding-bottom: 1vw;
 }
 .edIcon{
 	width: 40%;
@@ -98,18 +96,45 @@ li {
 	padding: 1%;
 	
 }
+
+
 .nav{
 	position: fixed;
 	top: 10%;
 	left: 0%;
 	background: #F0FFFF;
-	font-family: 'Farsan';font-size: 22px;
+	font-family: 'Farsan';font-size: 2vw;
 	color: black;
 	
 }
-
-.jumbo{
-	font-family: 'Farsan';
-	text-align: center;
+.nav2{
+	position: fixed;
+	top: 10%;
+	left: 95%;
+	font-family: 'Farsan';font-size: 2vw;
+	color: black;
 	
+}
+.jumbo{
+	font-family: 'Farsan';	
+	top: 5px;
+}
+
+.cardTitle{
+	font-family: 'Farsan';font-size: 8vw;
+	
+}
+
+.cardSubTitle{
+	font-family: 'Farsan';font-size: 2vw;
+	
+}
+
+.photo{
+	position:absolute;
+	top: 10%;
+	right: 10%;
+	width: 10vw;
+	height: auto;
+	border-radius: 50%;
 }
