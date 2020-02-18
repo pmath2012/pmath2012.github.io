@@ -34,7 +34,13 @@
 <BODY>
     <div id="app">
       <b-container>
-        <b-jumbotron style="padding-bottom: 2px;" class="text-center" fluid container-fluid bg-variant="transparent" text-variant="dark" border-variant="light" header="Prateek Mathur" lead="Master of Science in Autonomous systems">
+	    <b-nav vertical class="nav">
+		    <b-nav-item href="#about"> About </b-nav-item>
+		    <b-nav-item href="#education"> Education </b-nav-item>
+		    <b-nav-item href="#interests"> Interests </b-nav-item>
+		    <b-nav-item href="#skills"> Skills </b-nav-item>
+		</b-nav>
+		<b-jumbotron style="padding-bottom: 2px;" class="text-center" fluid container-fluid bg-variant="transparent" text-variant="dark" border-variant="light" header="Prateek Mathur" lead="Master of Science in Autonomous systems">
 		<b-img-lazy center rounded="circle" width="200vw" height="auto" src="images/photo.jpg">	
 		</b-img-lazy>
 		<ul>
@@ -43,7 +49,7 @@
 		<li> <b-link href="https://www.instagram.com/prateekmathur21/"><b-img-lazy class="icon" src="images/insta.png"></b-img-lazy></b-link> </li>		
 		</ul>
 		</b-jumbotron>
-		<div class="divider"><span></span><span>About Me</span><span></span></div>
+		<div id="about" class="divider"><span></span><span>About Me</span><span></span></div>
 	    <b-card
 		class="text-center"
 		bg-variant="transparent"
@@ -57,15 +63,80 @@
 		  {{ interestsLine }}
 		  </b-card-text>
 	  </b-card>
-	  <div class="divider"><span></span><span>My Interests</span><span></span></div>
-		<b-card-group deck>
+	  <div id="education" class="divider"><span></span><span>Education</span><span></span></div>
+	  <b-card-group deck>
+		<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Masters in Autonomous Systems" class="text-center">
+		   <ul>
+			<li> <b-img-lazy v-b-popover.hover.top="'MSc. Autonomous Systems'" title="EIT Digital Master School" class="edIcon" src="images/eit.png"></b-img-lazy> </li>
+			<li> <b-img-lazy v-b-popover.hover.top="'MSc. ICT Innovation'" title="KTH Royal Institute of technology" class="edIcon" src="images/kth.png"></b-img-lazy> </li>
+			<li> <b-img-lazy v-b-popover.hover.top="'MSc. Internet of Things(IOT) '" title="EURECOM France" class="edIcon" src="images/eurecom.png"></b-img-lazy> </li>
+		   </ul>
+		   <b-card-text class="aboutText">
+				{{ mastersIntr }}
+		   </b-card-text>
+		</b-card>
+		<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Bachelors in Electronics and Communications Engineering" class="text-center">
+		   <b-img-lazy v-b-popover.hover.top="'B.Tech. Electronics and Communications Engineering'" title="Jaypee Institute of Information Technology" class="edIcon" src="images/jiit.png"></b-img-lazy>
+		   <b-card-text class="aboutText">
+				{{ bachelorsIntr }}
+		   </b-card-text>
+		</b-card>
+	  </b-card-group>
+	  <div id="interests" class="divider"><span></span><span>My Interests</span><span></span></div>
+		<b-card-group  deck>
 			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Machine Learning Applications" class="text-center">
-				<b-card-text>{{ machineLearningIntr }} </b-card-text>
+				<b-card-text class="aboutText">{{ machineLearningIntr }} </b-card-text>
 			</b-card>
 			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Communication Systems" class="text-center">
-				<b-card-text>{{ commSysIntr }}</b-card-text>
+				<b-card-text class="aboutText">{{ commSysIntr }}</b-card-text>
+			</b-card>
+			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Deep Learning in Image processing" class="text-center">
+				<b-card-text class="aboutText">{{ imProcIntr }}</b-card-text>
 			</b-card>
 		</b-card-group>	
+	  <div id="skills" class="divider"><span></span><span>My Skills</span><span></span></div>
+	  	<b-card-group deck>
+			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Programming Languages" class="text-center">
+			<ul>
+				<li> <b-img-lazy v-b-popover.hover.top="'I have done several projects in java both academic and professional. I am an Oracle Certified Java SE 8 Programmer'" title="Java" class="skIcon" src="images/java.png"></b-img-lazy> </li>
+				<li> <b-img-lazy v-b-popover.hover.top="'I used Erlang professionally for a project. I worked in the project for 2 years'" title="Erlang" class="skIcon" src="images/erlang.png"></b-img-lazy> </li>
+				<li> <b-img-lazy v-b-popover.hover.top="'I have used Python in academic projects.'" title="Python" class="skIcon" src="images/python.png"></b-img-lazy> </li>
+
+			</ul>				
+			</b-card>
+			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Development Tools" class="text-center">
+			<ul>
+				<li> <b-img-lazy v-b-popover.hover.top="'I have used Matlab for several academic projects in Signal processing, wireless communications, '" title="Matlab" class="skIcon" src="images/matlab.png"></b-img-lazy> </li>
+				<li> <b-img-lazy v-b-popover.hover.top="'I have used eclipse as the Development Environment for my projects in Java'" title="Eclipse IDE" class="skIcon" src="images/eclipse.png"></b-img-lazy> </li>
+				<li> <b-img-lazy v-b-popover.hover.top="'I have used Gama platform for my Artificial Intelligence and Intelligent Agent course'" title="Gama" class="skIcon" src="images/gama.png"></b-img-lazy> </li>
+				<li> <b-img-lazy v-b-popover.hover.top="'I used git in my academic projects as well as professional ones'" title="Git" class="skIcon" src="images/git.png"></b-img-lazy> </li>
+			</ul>		
+			</b-card>
+			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="ML and Deep Learning tools" class="text-center">
+			<ul>
+				<li> <b-img-lazy v-b-popover.hover.top="'I have used Sci-kit Learn for several machine learning projects'" title="SciKit Learn" class="skIcon" src="images/scikitlearn.png"></b-img-lazy> </li>
+				<li> <b-img-lazy v-b-popover.hover.top="'I have used the google Colab platform extensively for project work'" title="Google Colab" class="skIcon" src="images/colab.png"></b-img-lazy> </li>
+				<li> <b-img-lazy v-b-popover.hover.top="'I have used pytorch for my semester project for Brain Vessel Segmentation'" title="PyTorch" class="skIcon" src="images/pytorch.png"></b-img-lazy> </li>
+				<li> <b-img-lazy v-b-popover.hover.top="'I have used tensorflow for my semester prokect for Brain Vessel Segmentation '" title="Tensorflow" class="skIcon" src="images/tensorflow.png"></b-img-lazy> </li>
+			</ul>	
+			</b-card>
+			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Web Development and Other tools" class="text-center">
+			<ul>
+				<li> <b-img-lazy v-b-popover.hover.top="'I have used HTML5 for several academic projects as well as this website'" title="HTML5" class="skIcon" src="images/html.png"></b-img-lazy> </li>
+				<li> <b-img-lazy v-b-popover.hover.top="'I have used Javascript for several academic projects as well as this website'" title="Javasacript" class="skIcon" src="images/javascript.png"></b-img-lazy> </li>
+				<li> <b-img-lazy v-b-popover.hover.top="'I have used Vue for one academic project as well as this website'" title="Vue.js" class="skIcon" src="images/vue.png"></b-img-lazy> </li>
+				<li> <b-img-lazy v-b-popover.hover.top="'I have used photoshop alot for simple editing and design'" title="Photoshop" class="skIcon" src="images/photoshop.png"></b-img-lazy> </li>
+				<li> <b-img-lazy v-b-popover.hover.top="'I have used postgresql extensively professionally'" title="PostgreSQL" class="skIcon" src="images/postgre.png"></b-img-lazy> </li>
+			</ul>	
+			</b-card>
+		</b-card-group>	
+		<div id="Projects" class="divider"><span></span><span>My Projects</span><span></span></div>
+		<b-card bg-variant="transparent" border-variant="light" text-variant="dark" title="Segmenting Blood Vessels in Brain Images" sub-title="Oct-2020 to Feb-2020" class="projectDesc">
+			<b-card-text>
+			Brain Vessels are tortuous structures and it is very difficult to use traditional techniques for semantic segmentation in brain images.
+			In this project we explore several techniques that aim at segmenting small objects in large datasets. We used PyTorch, Tensorflow and Keras for different stages of our development process and used Colab for development environment.
+			</b-card-text>
+		</b-card>
       </b-container>	  
     </div>
 
@@ -74,17 +145,18 @@
       window.app = new Vue({
         el: '#app',
         data: {
-          intro: 'I am an engineer in the making currently enrolled in the EIT digital master school programme MSc. in Autonomous Systems. I have completed the first year of my masters at KTH Royal Institute of technology in Sweden and currently pursuing my final year of studies at EURECOM in France.',
-		  interestsLine : 'I will undertake an internship at École normale supérieure from March 2020 to September 2020, I am interested in furthering my academic career in form of a Phd.',
+          intro: 'I am an engineer in the making currently enrolled in the EIT digital master school programme MSc. in Autonomous Systems. I have completed the first year of my masters at KTH Royal Institute of technology in Sweden and currently pursuing my final year of studies at EURECOM in France with specialization in Sensing Communicating and processing Big Data in Autonomous Systems.',
+		  interestsLine : 'I will undertake an internship at École normale supérieure from March 2020 to September 2020, I am interested in furthering my academic career in form of a Phd. I have worked as a Software Engineer for 3 years in the field of ICT services.',
 		  machineLearningIntr: ' I find machine learning a fascinating topic and have followed several courses in ML. I have also taken several projects ranging from basic applications of linear regression, SVM to complex neural networks. I am interested in exploring the impact of machine learning in areas such as computer vision and communication systems',
 		  commSysIntr: ' I have a keen interest in communication systems especially wireless systems. I have taken several courses regarding wireless standards in Intelligent Transport Systems and Mobile communication systems. I have also authored an academic paper proposing techniques to improve OFDM performance',
+		  imProcIntr: ' The field of image processing is very interesting to me. With its direct application in autonomous driving and medical imaging. I have followed a semester project in brain vessel segmentation which used a 2D U-Net architecture',
+		  mastersIntr: ' EIT Digital Masters Program : 2018-2019 KTH Royal Institute of Technology, 2019-2020 EURECOM',
+		  bachelorsIntr: ' Bachelors in Electronics and Communications Engineering with focus on Wireless Communications. From 2011-2015.',
+		  java: ''
         },
         computed: {
-          showAlert() {
-            return this.name.length > 4 ? true : false
-          }
         }
-      })
+      });
     </script>
 </BODY>
 

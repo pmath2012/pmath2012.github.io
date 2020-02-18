@@ -59,6 +59,11 @@ body {
 	font-family: 'Farsan';font-size: 22px;
 	
 }
+
+.projectDesc{
+	font-family: 'Farsan';font-size: 22px;
+	
+}
 .mainBody{
 	
 }
@@ -80,4 +85,25 @@ li {
 	height: 15%;
 	padding-bottom: 4%;
 	padding-left: 1%;
+}
+.edIcon{
+	width: 20vh;
+	height: auto;
+	padding: 1%;
+	
+}
+.skIcon{
+	width: 15vh;
+	height: auto;
+	padding: 1%;
+	
+}
+.nav{
+	position: fixed;
+	top: 10%;
+	left: 0%;
+	background: #F0FFFF;
+	font-family: 'Farsan';font-size: 22px;
+	color: black;
+	
 }
