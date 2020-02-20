@@ -38,7 +38,10 @@
 		    <b-nav-item href="#about"> About </b-nav-item>
 		    <b-nav-item href="#education"> Education </b-nav-item>
 		    <b-nav-item href="#interests"> Interests </b-nav-item>
+			<b-nav-item href="#publications"> Publications </b-nav-item>
 		    <b-nav-item href="#skills"> Skills </b-nav-item>
+			<b-nav-item href="#projects"> Projects </b-nav-item>
+			<b-nav-item href="#paintings"> Paintings </b-nav-item>
 		</b-nav>
 	    <b-nav vertical class="nav2">
 		    <b-nav-item href="https://www.linkedin.com/in/pmath2012/"><b-img-lazy class="icon" src="images/linkedin.png"></b-img-lazy></b-nav-item>
@@ -96,6 +99,17 @@
 				<b-card-text class="aboutText">{{ imProcIntr }}</b-card-text>
 			</b-card>
 		</b-card-group>	
+	  <div id="publication" class="divider"><span></span><span>My Publications</span><span></span></div>
+		<b-card-title class="projTitle">
+			{{ pubTitle }}
+		</b-card-title>
+			<b-card-text class="aboutText">
+				{{ pubDesc }}
+			</b-card-text>
+			<b-card-text class="aboutText">
+				Available <b-link href="{{ pubLink }}"> here </b-link>
+			</b-card-text>
+		</b-card>	  
 	  <div id="skills" class="divider"><span></span><span>My Skills</span><span></span></div>
 	  	<b-card-group deck>
 			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Programming Languages" class="text-center">
@@ -132,13 +146,100 @@
 			</ul>	
 			</b-card>
 		</b-card-group>	
-		<div id="Projects" class="divider"><span></span><span>My Projects</span><span></span></div>
-		<b-card bg-variant="transparent" border-variant="light" text-variant="dark" title="Segmenting Blood Vessels in Brain Images" sub-title="Oct-2020 to Feb-2020" class="projectDesc">
+		<div id="projects" class="divider"><span></span><span>My Projects</span><span></span></div>
+		<b-card bg-variant="transparent" border-variant="light" text-variant="dark" title="" sub-title="" class="projectDesc">
+		<b-card-title class="projTitle">
+			{{ brainVessTitle }}
+		</b-card-title>
+		
+		<b-card-sub-title class="projSubTitle">
+			{{ brainVessSubt }}
+		</b-card-sub-title>
 			<b-card-text>
 				{{ brainvesseldescr }}
 			</b-card-text>
-			<b-img-lazy src="images/brain.png"></b-img-lazy>
+			<b-img-lazy center width="600vw" height="auto" src="images/brain.png"></b-img-lazy>
 		</b-card>
+		<b-card bg-variant="transparent" border-variant="light" text-variant="dark" title="" sub-title="" class="projectDesc">
+		<b-card-title class="projTitle">
+			{{ bussDevVentTitle }}
+		</b-card-title>
+		
+		<b-card-sub-title class="projSubTitle">
+			{{ bussDevVentSubTitle }}
+		</b-card-sub-title>
+			<b-card-text>
+				{{ bussDevVentDesc }}
+			</b-card-text>
+		 <b-carousel id="slides" v-model="slide" :interval="4000" controls indicators class="projCar" @sliding-start="onSlideStart" @sliding-end="onSlideEnd" >
+				<b-carousel-slide 
+					caption="Workout And Peers"
+					img-src="images/wap.png"
+					>
+				</b-carousel-slide>
+				<b-carousel-slide
+					img-src="images/schedule.png"				
+					>
+				</b-carousel-slide>
+				<b-carousel-slide
+					img-src="images/find.png"				
+					>
+				</b-carousel-slide>
+				<b-carousel-slide
+					img-src="images/profile1.png"				
+					>
+				</b-carousel-slide>
+				<b-carousel-slide
+					img-src="images/achievements.png"				
+					>
+				</b-carousel-slide>
+				<b-carousel-slide
+					img-src="images/edit.png"				
+					>
+				</b-carousel-slide>
+				<b-carousel-slide
+					img-src="images/explore.png"				
+					>
+				</b-carousel-slide>
+			</b-carousel>
+		</b-card>
+		<b-card bg-variant="transparent" border-variant="light" text-variant="dark" title="" sub-title="" class="projectDesc">
+		<b-card-title class="projTitle">
+			{{ patRecTitle }}
+		</b-card-title>
+		
+		<b-card-sub-title class="projSubTitle">
+			{{ patRecSubt }}
+		</b-card-sub-title>
+			<b-card-text>
+				{{ patRecDesc }}
+			</b-card-text>
+		</b-card>		
+		<b-card bg-variant="transparent" border-variant="light" text-variant="dark" title="" sub-title="" class="projectDesc">
+		<b-card-title class="projTitle">
+			{{ aiTitle }}
+		</b-card-title>
+		
+		<b-card-sub-title class="projSubTitle">
+			{{ aiSubt }}
+		</b-card-sub-title>
+			<b-card-text>
+				{{ aiDesc }}
+			</b-card-text>
+		<iframe style="margin:auto;" width="560" height="315" src="https://www.youtube.com/embed/Q2IPY-O5TFc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</b-card>	
+		<div id="paintings" class="divider"><span></span><span>My Paintings</span><span></span></div>		
+        <b-card bg-variant="transparent" border-variant="light" text-variant="dark" title="" sub-title="" class="projectDesc">
+		 <b-carousel id="slides" v-model="slide" :interval="4000" controls indicators class="paintings" @sliding-start="onSlideStart" @sliding-end="onSlideEnd" >	
+			<b-carousel-slide v-for="item in paintings"
+				:img-src="item">
+			</b-carousel-slide>
+		 </b-carousel>
+		 </b-card>
+		 
+		 <footer >
+			Please contact me at <a href="mailto:prateekm@kth.se"> Prateek Mathur </a>
+		 </footer>
       </b-container>	  
     </div>
 
@@ -154,7 +255,22 @@
 		  imProcIntr: ' The field of image processing is very interesting to me. With its direct application in autonomous driving and medical imaging. I have followed a semester project in brain vessel segmentation which used a 2D U-Net architecture',
 		  mastersIntr: ' EIT Digital Masters Program : 2018-2019 KTH Royal Institute of Technology, 2019-2020 EURECOM',
 		  bachelorsIntr: ' Bachelors in Electronics and Communications Engineering with focus on Wireless Communications. From 2011-2015.',
-		  brainvesseldescr: 'Brain Vessels are tortuous structures and it is very difficult to use traditional techniques for semantic segmentation in brain images. In this project we explore several techniques that aim at segmenting small objects in large datasets. We used PyTorch, Tensorflow and Keras for different stages of our development process and used Colab for development environment. We were able to achieve an average dice score of 0.782'
+		  brainvesseldescr: 'Brain Vessels are tortuous structures and it is very difficult to use traditional techniques for semantic segmentation in brain images. In this project we explore several techniques that aim at segmenting small objects in large datasets. We used PyTorch, Tensorflow and Keras for different stages of our development process and used Colab for development environment. We were able to achieve an average dice score of 0.782',
+		  brainVessTitle: 'Segmenting Blood Vessels in Brain Images',
+		  brainVessSubt: 'Oct-2020 to Feb-2020',
+		  bussDevVentTitle: 'Business Development Venture',
+		  bussDevVentSubTitle: 'Jan-2019 to Jun-2019',
+		  bussDevVentDesc: 'As part of my Innovation and Entreprenuership course at KTH Royal Institute of technology, I was a part of a team that developed a business venture. We went through all phases from idea screening, prototyping, testing, developing and deploying the application for android. I took the responsibility of setting up the backend infrastructure using REST requests and Java Hibernate linked with a PostgreSQL Database. I was also responsible for coding the frontend functionality.',
+		  patRecTitle: 'Hand Written Greek Letter Recoginition using Hidden Markov Models',
+		  patRecSubt: 'Apr-2019 to Jun-2019',
+		  patRecDesc: 'Created a hand written greek letter classifier using Hidden Markov Models. I created the training dataset myself by drawing the characters using Matlab. I created my own feature extraction algorithm  by finding gradients along the strokes of the drawn digits. The Forward and Backward algorithm skeleton was provided but needed to be modified.',
+		  aiDesc: 'Created a multi agent simulation of a festival/carnival based on the Belief Desire Intention model inspired from the seven deadly sins. Agents have different roles, from medics, to policemen, and normal festival goers. The simulation is done using the Gama Platform',
+		  aiTitle: 'Multi-Agent festival model',
+		  aiSubt: 'Nov-2018 to Dec-2018',
+		  pubTitle: 'Companding Schemes for Reducing PAPR in OFDM System: A Review',
+		  pubDesc: 'Abstract - High PAPR poses a large hindrance to high data rate Orthogonal Frequency Division Multiplexing (OFDM) signals. A companding transform converts the Probability distribution function (PDF) of the transmitted OFDM signal in a way which reduces the Peak-to-average power-ratio (PAPR). In this paper, we have performed the study of companding techniques and analyzes the PAPR and BER performances of these schemes. Here, we have considered μ-law companding, exponential companding, trapezoidal companding (TC) and trigonal companding for comparison. In this paper, we have demonstrated that μ-law companding, exponential companding and trigonal companding schemes have no adaptability in designing the companding function, and along these lines an exchange off between BER performance and PAPR reduction ability is unrealistic to accomplish. However, TC scheme has two parameters (a and b) to design the companding function and hence a trade-off between PAPR reduction capability and BER performance is possible to achieve. BER performance and PAPR reduction capabilities of the scheme under consideration are evaluated and compared through computer simulations. We have also presented an approach to obtain the minimum BER and PAPR of TC and found out the values of design parameters (a and b) for which TC scheme has minimum BER and PAPR.',
+		  pubLink: 'https://www.degruyter.com/view/j/joc.ahead-of-print/joc-2017-0196/joc-2017-0196.xml?rskey=IeOcOY&result=2',
+		  paintings: ['images/p1.png','images/p2.png','images/p3.png','images/p4.png','images/p5.png','images/p6.png','images/p7.png','images/p8.png','images/p9.png','images/p10.png','images/p11.png','images/p12.png','images/p13.png','images/p14.png']
         },
         computed: {
         }
