@@ -5,238 +5,35 @@
 	<title>Prateek Mathur </title>
 	
     <!-- Required Stylesheets -->
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"
-    />
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"
-    />
-
+    <link type="text/css" rel="stylesheet" href="./static/build/css/base.css" />
 	<link href='https://fonts.googleapis.com/css?family=Bilbo Swash Caps' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Farsan' rel='stylesheet'>
-	<link
-	  type="text/css"
-	  rel="stylesheet"
-	  href="scripts/basic.css"
-	  />
+    
 
     <!-- Load polyfills to support older browsers -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"></script>
 
-    <!-- Required scripts -->
-    <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
-    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+
 </HEAD>
 <BODY>
     <div id="app">
       <b-container>
-	    <b-nav vertical class="nav">
-		    <b-nav-item href="#about"> About </b-nav-item>
-		    <b-nav-item href="#education"> Education </b-nav-item>
-		    <b-nav-item href="#interests"> Interests </b-nav-item>
-			<b-nav-item href="#publications"> Publications </b-nav-item>
-		    <b-nav-item href="#skills"> Skills </b-nav-item>
-			<b-nav-item href="#projects"> Projects </b-nav-item>
-			<b-nav-item href="#paintings"> Paintings </b-nav-item>
-		</b-nav>
-	    <b-nav vertical class="nav2">
-		    <b-nav-item href="https://www.linkedin.com/in/pmath2012/"><b-img-lazy class="icon" src="images/linkedin.png"></b-img-lazy></b-nav-item>
-		    <b-nav-item href="https://www.facebook.com/prateek.mathur.503"><b-img-lazy class="icon" src="images/fb.png"></b-img-lazy></b-nav-item>
-		    <b-nav-item href="https://www.instagram.com/prateekmathur21/"><b-img-lazy class="icon" src="images/insta.png"></b-img-lazy></b-nav-item>
-		</b-nav>
-		<b-card class="jumbo" bg-variant="transparent" text-variant="dark" border-variant="light" >
-		<b-card-title class="cardTitle">Prateek Mathur</b-card-title>
-		<b-card-sub-title class="cardSubTitle">Master of Science in Autonomous systems</b-card-sub-title>
-		<b-card-img class="photo" rounded="circle" src="images/photo.jpg">	
-		</b-card-img>
-		</b-card>
+        <p-navigation></p-navigation>
+		<p-title></p-title>
 		<div id="about" class="divider"><span></span><span>About Me</span><span></span></div>
-	    <b-card
-		class="text-center"
-		bg-variant="transparent"
-		border-variant="light"
-		>
-
-          <b-card-text class="aboutText">
-		  {{ intro }} 
-		  </b-card-text>
-		  <b-card-text class="aboutText">
-		  {{ interestsLine }}
-		  </b-card-text>
-	  </b-card>
-	  <div id="education" class="divider"><span></span><span>Education</span><span></span></div>
-	  <b-card-group deck>
-		<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Masters in Autonomous Systems" class="text-center">
-		   <ul>
-			<li> <b-img-lazy v-b-popover.hover.top="'MSc. Autonomous Systems'" title="EIT Digital Master School" class="edIcon" src="images/eit.png"></b-img-lazy> </li>
-			<li> <b-img-lazy v-b-popover.hover.top="'MSc. ICT Innovation'" title="KTH Royal Institute of technology" class="edIcon" src="images/kth.png"></b-img-lazy> </li>
-			<li> <b-img-lazy v-b-popover.hover.top="'MSc. Internet of Things(IOT) '" title="EURECOM France" class="edIcon" src="images/eur.png"></b-img-lazy> </li>
-		   </ul>
-		   <b-card-text class="aboutText">
-				{{ mastersIntr }}
-		   </b-card-text>
-		</b-card>
-		<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Bachelors in Electronics and Communications Engineering" class="text-center">
-		   <b-img-lazy v-b-popover.hover.top="'B.Tech. Electronics and Communications Engineering'" title="Jaypee Institute of Information Technology" class="edIcon" src="images/jiit.png"></b-img-lazy>
-		   <b-card-text class="aboutText">
-				{{ bachelorsIntr }}
-		   </b-card-text>
-		</b-card>
-	  </b-card-group>
-	  <div id="interests" class="divider"><span></span><span>My Interests</span><span></span></div>
-		<b-card-group  deck>
-			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Machine Learning Applications" class="text-center">
-				<b-card-text class="aboutText">{{ machineLearningIntr }} </b-card-text>
-			</b-card>
-			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Communication Systems" class="text-center">
-				<b-card-text class="aboutText">{{ commSysIntr }}</b-card-text>
-			</b-card>
-			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Deep Learning in Image processing" class="text-center">
-				<b-card-text class="aboutText">{{ imProcIntr }}</b-card-text>
-			</b-card>
-		</b-card-group>	
-	  <div id="publication" class="divider"><span></span><span>My Publications</span><span></span></div>
-		<b-card-title class="projTitle">
-			{{ pubTitle }}
-		</b-card-title>
-			<b-card-text class="aboutText">
-				{{ pubDesc }}
-			</b-card-text>
-			<b-card-text class="aboutText">
-				Available <b-link href="https://www.degruyter.com/view/j/joc.ahead-of-print/joc-2017-0196/joc-2017-0196.xml"> here </b-link>
-			</b-card-text>
-		</b-card>	  
-	  <div id="skills" class="divider"><span></span><span>My Skills</span><span></span></div>
-	  	<b-card-group deck>
-			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Programming Languages" class="text-center">
-			<ul>
-				<li> <b-img-lazy v-b-popover.hover.top="'I have done several projects in java both academic and professional. I am an Oracle Certified Java SE 8 Programmer'" title="Java" class="skIcon" src="images/java.png"></b-img-lazy> </li>
-				<li> <b-img-lazy v-b-popover.hover.top="'I used Erlang professionally for a project. I worked in the project for 2 years'" title="Erlang" class="skIcon" src="images/erlang.png"></b-img-lazy> </li>
-				<li> <b-img-lazy v-b-popover.hover.top="'I have used Python in academic projects.'" title="Python" class="skIcon" src="images/python.png"></b-img-lazy> </li>
-
-			</ul>				
-			</b-card>
-			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Development Tools" class="text-center">
-			<ul>
-				<li> <b-img-lazy v-b-popover.hover.top="'I have used Matlab for several academic projects in Signal processing, wireless communications, '" title="Matlab" class="skIcon" src="images/matlab.png"></b-img-lazy> </li>
-				<li> <b-img-lazy v-b-popover.hover.top="'I have used eclipse as the Development Environment for my projects in Java'" title="Eclipse IDE" class="skIcon" src="images/eclipse.png"></b-img-lazy> </li>
-				<li> <b-img-lazy v-b-popover.hover.top="'I have used Gama platform for my Artificial Intelligence and Intelligent Agent course'" title="Gama" class="skIcon" src="images/gama.png"></b-img-lazy> </li>
-				<li> <b-img-lazy v-b-popover.hover.top="'I used git in my academic projects as well as professional ones'" title="Git" class="skIcon" src="images/git.png"></b-img-lazy> </li>
-			</ul>		
-			</b-card>
-			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="ML and Deep Learning tools" class="text-center">
-			<ul>
-				<li> <b-img-lazy v-b-popover.hover.top="'I have used Sci-kit Learn for several machine learning projects'" title="SciKit Learn" class="skIcon" src="images/scikitlearn.png"></b-img-lazy> </li>
-				<li> <b-img-lazy v-b-popover.hover.top="'I have used the google Colab platform extensively for project work'" title="Google Colab" class="skIcon" src="images/colab.png"></b-img-lazy> </li>
-				<li> <b-img-lazy v-b-popover.hover.top="'I have used pytorch for my semester project for Brain Vessel Segmentation'" title="PyTorch" class="skIcon" src="images/pytorch.png"></b-img-lazy> </li>
-				<li> <b-img-lazy v-b-popover.hover.top="'I have used tensorflow for my semester prokect for Brain Vessel Segmentation '" title="Tensorflow" class="skIcon" src="images/tensorflow.png"></b-img-lazy> </li>
-			</ul>	
-			</b-card>
-			<b-card bg-variant="transparent" border-variant="light" text-variant="dark" header="Web Development and Other tools" class="text-center">
-			<ul>
-				<li> <b-img-lazy v-b-popover.hover.top="'I have used HTML5 for several academic projects as well as this website'" title="HTML5" class="skIcon" src="images/html.png"></b-img-lazy> </li>
-				<li> <b-img-lazy v-b-popover.hover.top="'I have used Javascript for several academic projects as well as this website'" title="Javasacript" class="skIcon" src="images/javascript.png"></b-img-lazy> </li>
-				<li> <b-img-lazy v-b-popover.hover.top="'I have used Vue for one academic project as well as this website'" title="Vue.js" class="skIcon" src="images/vue.png"></b-img-lazy> </li>
-				<li> <b-img-lazy v-b-popover.hover.top="'I have used photoshop alot for simple editing and design'" title="Photoshop" class="skIcon" src="images/photoshop.png"></b-img-lazy> </li>
-				<li> <b-img-lazy v-b-popover.hover.top="'I have used postgresql extensively professionally'" title="PostgreSQL" class="skIcon" src="images/postgre.png"></b-img-lazy> </li>
-			</ul>	
-			</b-card>
-		</b-card-group>	
-		<div id="projects" class="divider"><span></span><span>My Projects</span><span></span></div>
-		<b-card bg-variant="transparent" border-variant="light" text-variant="dark" title="" sub-title="" class="projectDesc">
-		<b-card-title class="projTitle">
-			{{ brainVessTitle }}
-		</b-card-title>
-		
-		<b-card-sub-title class="projSubTitle">
-			{{ brainVessSubt }}
-		</b-card-sub-title>
-			<b-card-text>
-				{{ brainvesseldescr }}
-			</b-card-text>
-			<b-img-lazy center width="600vw" height="auto" src="images/brain.png"></b-img-lazy>
-		</b-card>
-		<b-card bg-variant="transparent" border-variant="light" text-variant="dark" title="" sub-title="" class="projectDesc">
-		<b-card-title class="projTitle">
-			{{ bussDevVentTitle }}
-		</b-card-title>
-		
-		<b-card-sub-title class="projSubTitle">
-			{{ bussDevVentSubTitle }}
-		</b-card-sub-title>
-			<b-card-text>
-				{{ bussDevVentDesc }}
-			</b-card-text>
-		 <b-carousel id="slides" v-model="slide" :interval="4000" controls indicators class="projCar" @sliding-start="onSlideStart" @sliding-end="onSlideEnd" >
-				<b-carousel-slide 
-					caption="Workout And Peers"
-					img-src="images/wap.png"
-					>
-				</b-carousel-slide>
-				<b-carousel-slide
-					img-src="images/schedule.png"				
-					>
-				</b-carousel-slide>
-				<b-carousel-slide
-					img-src="images/find.png"				
-					>
-				</b-carousel-slide>
-				<b-carousel-slide
-					img-src="images/profile1.png"				
-					>
-				</b-carousel-slide>
-				<b-carousel-slide
-					img-src="images/achievements.png"				
-					>
-				</b-carousel-slide>
-				<b-carousel-slide
-					img-src="images/edit.png"				
-					>
-				</b-carousel-slide>
-				<b-carousel-slide
-					img-src="images/explore.png"				
-					>
-				</b-carousel-slide>
-			</b-carousel>
-		</b-card>
-		<b-card bg-variant="transparent" border-variant="light" text-variant="dark" title="" sub-title="" class="projectDesc">
-		<b-card-title class="projTitle">
-			{{ patRecTitle }}
-		</b-card-title>
-		
-		<b-card-sub-title class="projSubTitle">
-			{{ patRecSubt }}
-		</b-card-sub-title>
-			<b-card-text>
-				{{ patRecDesc }}
-			</b-card-text>
-		</b-card>		
-		<b-card bg-variant="transparent" border-variant="light" text-variant="dark" title="" sub-title="" class="projectDesc">
-		<b-card-title class="projTitle">
-			{{ aiTitle }}
-		</b-card-title>
-		
-		<b-card-sub-title class="projSubTitle">
-			{{ aiSubt }}
-		</b-card-sub-title>
-			<b-card-text>
-				{{ aiDesc }}
-			</b-card-text>
-		<center> <iframe style="float:center;" width="560" height="315" src="https://www.youtube.com/embed/Q2IPY-O5TFc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </center>
-		</b-card>	
+	    <p-intro></p-intro>
+	    <div id="education" class="divider"><span></span><span>Education</span><span></span></div>
+	    <p-education></p-education>
+	    <div id="interests" class="divider"><span></span><span>My Interests</span><span></span></div>
+		<p-interests></p-interests>	
+	    <div id="publications" class="divider"><span></span><span>My Publications</span><span></span></div>
+        <p-pubs></p-pubs>
+	    <div id="skills" class="divider"><span></span><span>My Skills</span><span></span></div>
+        <p-skills> </p-skills>
+		<div id="projects" class="divider"><span></span><span>My Projectsdz</span><span></span></div>
+        <p-projects></p-projects>
 		<div id="paintings" class="divider"><span></span><span>My Paintings</span><span></span></div>		
-        <b-card bg-variant="transparent" border-variant="light" text-variant="dark" title="" sub-title="" class="projectDesc">
-		 <b-carousel id="slides" v-model="slide" :interval="4000" controls indicators class="paintings" @sliding-start="onSlideStart" @sliding-end="onSlideEnd" >	
-			<b-carousel-slide v-for="item in paintings"
-				:img-src="item">
-			</b-carousel-slide>
-		 </b-carousel>
-		 </b-card>
-		 
+        <p-paintings></p-paintings> 
 		 <footer >
 			Please contact me at <a href="mailto:prateekm@kth.se"> Prateek Mathur </a>
 		 </footer>
@@ -244,38 +41,7 @@
     </div>
 
     <!-- Start running your app -->
-    <script>
-      window.app = new Vue({
-        el: '#app',
-        data: {
-          intro: 'I am an engineer in the making currently enrolled in the EIT digital master school programme MSc. in Autonomous Systems. I have completed the first year of my masters at KTH Royal Institute of technology in Sweden and currently pursuing my final year of studies at EURECOM in France with specialization in Sensing Communicating and processing Big Data in Autonomous Systems.',
-		  interestsLine : 'I am an intern at École normale supérieure starting from March 2020 to September 2020 where I work on building a Software as a Service for EEG analysis in patients at risk for Iso-Electric supressions during general anaesthesia. I am interested in furthering my academic career in form of a Phd. I have worked as a Software Engineer for 3 years in the field of ICT services.',
-		  machineLearningIntr: ' I find machine learning a fascinating topic and have followed several courses in ML. I have also taken several projects ranging from basic applications of linear regression, SVM to complex neural networks. I am interested in exploring the impact of machine learning in areas such as computer vision and communication systems',
-		  commSysIntr: ' I have a keen interest in communication systems especially wireless systems. I have taken several courses regarding wireless standards in Intelligent Transport Systems and Mobile communication systems. I have also authored an academic paper proposing techniques to improve OFDM performance',
-		  imProcIntr: ' The field of image processing is very interesting to me. With its direct application in autonomous driving and medical imaging. I have followed a semester project in brain vessel segmentation which used a 2D U-Net architecture',
-		  mastersIntr: ' EIT Digital Masters Program : 2018-2019 KTH Royal Institute of Technology, 2019-2020 EURECOM',
-		  bachelorsIntr: ' Bachelors in Electronics and Communications Engineering with focus on Wireless Communications. From 2011-2015.',
-		  brainvesseldescr: 'Brain Vessels are tortuous structures and it is very difficult to use traditional techniques for semantic segmentation in brain images. In this project we explore several techniques that aim at segmenting small objects in large datasets. We used PyTorch, Tensorflow and Keras for different stages of our development process and used Colab for development environment. We were able to achieve an average dice score of 0.782',
-		  brainVessTitle: 'Segmenting Blood Vessels in Brain Images',
-		  brainVessSubt: 'Oct-2020 to Feb-2020',
-		  bussDevVentTitle: 'Business Development Venture',
-		  bussDevVentSubTitle: 'Jan-2019 to Jun-2019',
-		  bussDevVentDesc: 'As part of my Innovation and Entreprenuership course at KTH Royal Institute of technology, I was a part of a team that developed a business venture. We went through all phases from idea screening, prototyping, testing, developing and deploying the application for android. I took the responsibility of setting up the backend infrastructure using REST requests and Java Hibernate linked with a PostgreSQL Database. I was also responsible for coding the frontend functionality.',
-		  patRecTitle: 'Hand Written Greek Letter Recoginition using Hidden Markov Models',
-		  patRecSubt: 'Apr-2019 to Jun-2019',
-		  patRecDesc: 'Created a hand written greek letter classifier using Hidden Markov Models. I created the training dataset myself by drawing the characters using Matlab. I created my own feature extraction algorithm  by finding gradients along the strokes of the drawn digits. The Forward and Backward algorithm skeleton was provided but needed to be modified.',
-		  aiDesc: 'Created a multi agent simulation of a festival/carnival based on the Belief Desire Intention model inspired from the seven deadly sins. Agents have different roles, from medics, to policemen, and normal festival goers. The simulation is done using the Gama Platform',
-		  aiTitle: 'Multi-Agent festival model',
-		  aiSubt: 'Nov-2018 to Dec-2018',
-		  pubTitle: 'Companding Schemes for Reducing PAPR in OFDM System: A Review',
-		  pubDesc: 'Abstract - High PAPR poses a large hindrance to high data rate Orthogonal Frequency Division Multiplexing (OFDM) signals. A companding transform converts the Probability distribution function (PDF) of the transmitted OFDM signal in a way which reduces the Peak-to-average power-ratio (PAPR). In this paper, we have performed the study of companding techniques and analyzes the PAPR and BER performances of these schemes. Here, we have considered μ-law companding, exponential companding, trapezoidal companding (TC) and trigonal companding for comparison. In this paper, we have demonstrated that μ-law companding, exponential companding and trigonal companding schemes have no adaptability in designing the companding function, and along these lines an exchange off between BER performance and PAPR reduction ability is unrealistic to accomplish. However, TC scheme has two parameters (a and b) to design the companding function and hence a trade-off between PAPR reduction capability and BER performance is possible to achieve. BER performance and PAPR reduction capabilities of the scheme under consideration are evaluated and compared through computer simulations. We have also presented an approach to obtain the minimum BER and PAPR of TC and found out the values of design parameters (a and b) for which TC scheme has minimum BER and PAPR.',
-		  pubLink: 'https://www.degruyter.com/view/j/joc.ahead-of-print/joc-2017-0196/joc-2017-0196.xml?rskey=IeOcOY&result=2',
-		  paintings: ['images/p1.PNG','images/p2.PNG','images/p3.PNG','images/p4.PNG','images/p5.PNG','images/p6.PNG','images/p7.PNG','images/p8.PNG','images/p9.PNG','images/p10.PNG','images/p11.PNG','images/p12.PNG','images/p13.PNG','images/p14.PNG']
-        },
-        computed: {
-        }
-      });
-    </script>
+    <script src="./static/build/js/base.js"></script>
 </BODY>
 
 </HTML>
