@@ -2,7 +2,7 @@
 <div>
         <b-card bg-variant="transparent" border-variant="light" text-variant="dark" title="" sub-title="" class="projectDesc">
 		 <b-carousel id="slides" v-model="slide" :interval="4000" controls indicators class="paintings" @sliding-start="onSlideStart" @sliding-end="onSlideEnd" >	
-			<b-carousel-slide v-for="item in paintings"
+			<b-carousel-slide v-for="item in paintings" v-bind:key="item"
 				:img-src="item">
 			</b-carousel-slide>
 		 </b-carousel>
