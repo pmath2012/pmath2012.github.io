@@ -36,6 +36,7 @@
 			</b-card>
 			<b-card bg-variant="transparent" style="border: none;" text-variant="dark" header="Other tools" class="text-center">
 			<ul>
+				<li> <b-img-lazy id="k8s-img" class="skIcon" src="static/images/kubernetes.png"></b-img-lazy> </li>
 				<li> <b-img-lazy id="ps-img" class="skIcon" src="static/images/photoshop.png"></b-img-lazy> </li>
 				<li> <b-img-lazy id="postgres-img" class="skIcon" src="static/images/postgre.png"></b-img-lazy> </li>
 			</ul>
@@ -116,7 +117,7 @@
 			I used git in my academic projects as well as professional ones
 			<br>Skill Level:
 			<b-form-rating
-					color="pink"
+					color="purple"
 					value="4.9"
 					readonly
 			></b-form-rating>
@@ -206,7 +207,7 @@
 			I have used Django REST Framework for API design for an SaaS during my master thesis.
 			<br>Skill Level:
 			<b-form-rating
-					color="pink"
+					color="purple"
 					value="4"
 					readonly
 			></b-form-rating>
@@ -216,7 +217,7 @@
 			I have used postgresql extensively professionally
 			<br>Skill Level:
 			<b-form-rating
-					color="green"
+					color="indigo"
 					value="4.5"
 					readonly
 			></b-form-rating>
@@ -226,7 +227,17 @@
 			I have used photoshop a lot for simple editing and design
 			<br>Skill Level:
 			<b-form-rating
-					color="indigo"
+					color="blue"
+					value="3"
+					readonly
+			></b-form-rating>
+		</b-popover>
+	    <b-popover target="k8s-img" triggers="hover" placement="top">
+			<template v-slot:title>Kubernetes</template>
+			I have used Kubernetes as the deployment platform for a SaaS developed in my master thesis
+			<br>Skill Level:
+			<b-form-rating
+					color="green"
 					value="3"
 					readonly
 			></b-form-rating>
