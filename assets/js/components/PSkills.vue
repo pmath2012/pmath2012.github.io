@@ -38,7 +38,8 @@
 			<b-card bg-variant="transparent" style="border: none;" text-variant="dark" header="Other tools" class="text-center">
 			<ul>
 				<li> <b-img-lazy id="k8s-img" class="skIcon" src="static/images/kubernetes.png"></b-img-lazy> </li>
-				<li> <b-img-lazy id="inkscape" class="skIcon" src="static/images/latex.png"></b-img-lazy></li>
+				<li> <b-img-lazy id="latex" class="skIcon" src="static/images/latex.png"></b-img-lazy></li>
+				<li> <b-img-lazy id="inkscape" class="skIcon" src="static/images/inkscape.png"></b-img-lazy></li>
 				<li> <b-img-lazy id="ps-img" class="skIcon" src="static/images/photoshop.png"></b-img-lazy> </li>
 				<li> <b-img-lazy id="postgres-img" class="skIcon" src="static/images/postgre.png"></b-img-lazy> </li>
 			</ul>
@@ -130,7 +131,7 @@
 			<br>Skill Level:
 			<b-form-rating
 					color="green"
-					value="4.9"
+					value="3.5"
 					readonly
 			></b-form-rating>
 		</b-popover>
@@ -249,7 +250,7 @@
 			I have written several reports as well as my master thesis using Latex.
 			<br>Skill Level:
 			<b-form-rating
-					color="mauve"
+					color="aqua"
 					value="4"
 					readonly
 			></b-form-rating>
@@ -259,7 +260,17 @@
 			I have used docker and docker-compose to build by SaaS for my Master thesis.
 			<br>Skill Level:
 			<b-form-rating
-					color="mauve"
+					color="aqua"
+					value="4"
+					readonly
+			></b-form-rating>
+		</b-popover>
+	     <b-popover target="inkscape" triggers="hover" placement="top">
+			<template v-slot:title>Inkscape</template>
+			I have used inkscape for desiging figures in my Master Thesis.
+			<br>Skill Level:
+			<b-form-rating
+					color="taupe"
 					value="4"
 					readonly
 			></b-form-rating>
