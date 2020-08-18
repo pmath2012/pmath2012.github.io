@@ -15,6 +15,7 @@
 				<li> <b-img-lazy id="gama-img" class="skIcon" src="static/images/gama.png"></b-img-lazy> </li>
 				<li> <b-img-lazy id="pycharm-img" class="skIcon" src="static/images/pycharm.png"></b-img-lazy> </li>
 				<li> <b-img-lazy id="git-img" class="skIcon" src="static/images/git.png"></b-img-lazy> </li>
+				<li> <b-img-lazy id="docker" class="skIcon" src="static/images/docker.png"></b-img-lazy> </li>
 			</ul>
 			</b-card>
 			<b-card bg-variant="transparent" style="border: none;" text-variant="dark" header="ML and Deep Learning tools" class="text-center">
@@ -37,6 +38,7 @@
 			<b-card bg-variant="transparent" style="border: none;" text-variant="dark" header="Other tools" class="text-center">
 			<ul>
 				<li> <b-img-lazy id="k8s-img" class="skIcon" src="static/images/kubernetes.png"></b-img-lazy> </li>
+				<li> <b-img-lazy id="inkscape" class="skIcon" src="static/images/latex.png"></b-img-lazy></li>
 				<li> <b-img-lazy id="ps-img" class="skIcon" src="static/images/photoshop.png"></b-img-lazy> </li>
 				<li> <b-img-lazy id="postgres-img" class="skIcon" src="static/images/postgre.png"></b-img-lazy> </li>
 			</ul>
@@ -239,6 +241,26 @@
 			<b-form-rating
 					color="green"
 					value="3"
+					readonly
+			></b-form-rating>
+		</b-popover>
+	    <b-popover target="latex" triggers="hover" placement="top">
+			<template v-slot:title>Latex</template>
+			I have written several reports as well as my master thesis using Latex.
+			<br>Skill Level:
+			<b-form-rating
+					color="mauve"
+					value="4"
+					readonly
+			></b-form-rating>
+		</b-popover>
+	    <b-popover target="docker" triggers="hover" placement="top">
+			<template v-slot:title>Docker</template>
+			I have used docker and docker-compose to build by SaaS for my Master thesis.
+			<br>Skill Level:
+			<b-form-rating
+					color="mauve"
+					value="4"
 					readonly
 			></b-form-rating>
 		</b-popover>
