@@ -1,65 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hindi Word Generator</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hindi Word Generator</title>
+  <style>
     body {
-        font-family: Arial, sans-serif;
-        text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
     }
-    #word {
-        font-size: 24px;
-        margin-top: 50px;
+
+    #container {
+      text-align: center;
     }
-    #nextBtn {
-        margin-top: 20px;
-        padding: 10px 20px;
+
+    #wordDisplay {
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+
+    .shuffle-effect {
+      display: inline-block;
+      animation: shuffle 0.5s ease-in-out;
+    }
+
+    @keyframes shuffle {
+      0% { transform: scaleX(1); }
+      50% { transform: scaleX(0); }
+      100% { transform: scaleX(1); }
+    }
+
+    button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 10px;
+      transition-duration: 0.4s;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      background-color: #45a049;
+      transform: scale(1.1);
+    }
+
+    /* Responsive design */
+    @media only screen and (max-width: 600px) {
+      #wordDisplay {
+        font-size: 1.5em;
+      }
+
+      button {
+        padding: 15px 30px;
         font-size: 16px;
-        cursor: pointer;
-        border: none;
-        background-color: #4CAF50;
-        color: white;
-        border-radius: 5px;
-        transition: background-color 0.3s;
+      }
     }
-    #nextBtn:hover {
-        background-color: #45a049;
-    }
-</style>
+  </style>
 </head>
 <body>
-<h1>Hindi Word Generator</h1>
-<div id="word"></div>
-<button id="nextBtn" onclick="generateWord()">Next</button>
+  <div id="container">
+    <h1>Hindi Word Generator</h1>
+    <p>Click the button below to generate a random Hindi word:</p>
+    <button onclick="generateWord()">Generate Word</button>
+    <p id="wordDisplay"></p>
+  </div>
 
-<script>
-    // Array of sample words
-    var hindiWords = [
-    "दिल", "प्यार", "ख्वाब", "खुशी", "आसमान", "सपना", "जादू", "मोहब्बत", "बहार", "चाँद",
-    "इश्क़", "उम्मीद", "ग़म", "ज़िन्दगी", "ज़िद", "गीत", "बेहोश", "दुआ", "नज़र", "मुस्कान",
-    "संगीत", "अदा", "रूह", "बारिश", "सुर", "हरदम", "हसीना", "आशिकी", "आवाज़", "मज़ा",
-    "बेवज़ह", "मोहब्बत", "मौसम", "सजना", "बेख़ुदी", "बहार", "चाहत", "दोस्ती", "बरसात", "यार",
-    "हसरत", "दिलबर", "जन्नत", "राहत", "जिंदगी", "आँखें", "मुसाफ़िर", "अफ़साना", "फ़साना", "गुलाब",
-    "सितारा", "फ़रियाद", "अधूरा", "सितम", "बेहद", "दोस्त", "दीवाना", "दिलनशीं", "आहट", "आँसू",
-    "बेख़ुदी", "मस्ती", "आवाज़", "इश्क़", "हसरत", "यारी", "बेरुखी", "खुशियाँ", "चाँदनी", "अफ़साना",
-    "बेमुरावत", "ज़िन्दगी", "सुनहरा", "महोब्बत", "रोशनी", "मुसाफ़िर", "बहार", "दिल", "आँखें", "सपने",
-    "ज़िंदगी", "सागर", "प्यार", "सुकून", "बादल", "आसमान", "ख़्वाब", "बेखुदी", "ग़ज़ल", "गुलाब"
-];
+  <script>
+    // Embedded JSON data
+    const hindiWords = {
+      "hindiWords": [
+      "दिल", "प्यार", "ख्वाब", "खुशी", "आसमान", "सपना", "जादू", "मोहब्बत", "बहार", "चाँद",
+      "इश्क़", "उम्मीद", "ग़म", "ज़िन्दगी", "ज़िद", "गीत", "बेहोश", "दुआ", "नज़र", "मुस्कान",
+      "संगीत", "अदा", "रूह", "बारिश", "सुर", "हरदम", "हसीना", "आशिकी", "आवाज़", "मज़ा",
+      "बेवज़ह", "मोहब्बत", "मौसम", "सजना", "बेख़ुदी", "बहार", "चाहत", "दोस्ती", "बरसात", "यार",
+      "हसरत", "दिलबर", "जन्नत", "राहत", "जिंदगी", "आँखें", "मुसाफ़िर", "अफ़साना", "फ़साना", "गुलाब",
+      "सितारा", "फ़रियाद", "अधूरा", "सितम", "बेहद", "दोस्त", "दीवाना", "दिलनशीं", "आहट", "आँसू",
+      "मस्ती", "बेरुखी", "खुशियाँ", "चाँदनी", "अफ़साना", "बेमुरावत", "सुनहरा", "रोशनी", "सागर", "सुकून",
+      "बादल", "ख्याल", "बातें", "यादें", "ख्वाबों", "ख्यालों", "अरमानों", "दोस्तों", "खुशबू", "मुस्कान",
+      "अफ़सोस", "जाने", "दीदार", "बिना", "साजन", "ज़िन्दगी", "रूप", "मुहब्बत", "परवाज़", "हुस्न",
+      "सुना", "बीता", "जाना", "बीते", "अदा", "सितारों", "पानी", "आँखों", "खुशी", "बादलों",
+      "महफ़िल", "मुसाफ़िरों", "पास", "खुशियाँ", "बेकार", "आवाज़", "सुनना", "अब", "रहा", "रहती",
+      "माना", "सुनाना", "मिला", "मिलना", "ये", "रातें", "हालात", "पाल", "अपना", "पाया",
+      "सितारों", "बस", "हैं", "कभी", "आती", "ज़िंदगी", "मिली", "सारे", "कितना", "धड़कन",
+      "रुप", "रातें", "मोहब्बत", "सपने", "दिन", "सुन्दर", "सजा", "रुख", "बन", "आह",
+      "पास", "पिया", "पार", "किसी", "मुहब्बत", "आँखों", "गाना", "बिना", "पर्वत", "हँसती",
+      "सितारे", "जानेमन", "चाँदनी", "रूहानी", "हमने", "बदन", "छू", "आता", "माहौल", "उड़ने",
+      "समझ", "अपनी", "करती", "उड़ा", "बेख़ुदी", "ग़ज़ल", "पागल", "बेचैन", "रातें", "सपना",
+      "सुकून", "मुसाफ़िर", "अधूरा", "यादें", "राहत", "हसीना", "सपने", "रूह", "ख़याल", "आशिकी",
+      "बातें", "ग़म", "साज़", "सुकून", "बादल", "आसमान", "प्यार", "रूह", "आवाज़", "साज़",
+      "रातें", "ज़िन्दगी", "मोहब्बत", "सुर", "बातें", "प्यार", "साज़", "रातें", "ज़िन्दगी", "मुसाफ़िर",
+      "अधूरा", "यादें", "राहत", "हसीना", "रूह", "बेख़ुदी", "ख़्वाब", "बेखुदी", "ग़ज़ल", "पागल",
+      "बेचैन", "रातें", "सपना", "सुकून", "आसमान", "ख़्वाब", "ग़ज़ल", "पागल", "बेचैन", "रातें",
+      "सपना", "सुकून", "अधूरा", "राहत", "हसीना", "रूह", "ख़याल", "बातें", "बेचैन", "ग़म",
+      "मुसाफ़िर", "साज़", "सुकून", "बादल", "आसमान", "ख़्वाब", "बेखुदी", "ग़ज़ल", "पागल", "बेचैन",
+      "रातें", "सपना", "सुकून", "मुसाफ़िर", "अधूरा", "यादें", "राहत", "हसीना", "रूह", "बेखुदी",
+      "ख़्वाब", "ख़याल", "बातें", "बेचैन", "ग़म", "मुसाफ़िर", "साज़", "रातें", "सपना", "ज़िन्दगी",
+      "सुकून", "बादल", "आसमान", "ख़्वाब", "बेखुदी", "ग़ज़ल", "पागल", "बेचैन", "रातें", "सपना",
+      "सुकून", "मुसाफ़िर", "अधूरा", "यादें", "राहत", "हसीना", "रूह", "बेखुदी", "ख़्वाब", "ख़याल",
+      "बातें", "बेचैन", "ग़म", "मुसाफ़िर", "साज़", "रातें", "सपना"
+    ]
+    };
 
-
+    // Function to generate a random word from the list with fancy effect
     function generateWord() {
-        // Randomly select a word from the array
-        var randomIndex = Math.floor(Math.random() * hindiWords.length);
-        var word = hindiWords[randomIndex];
-        
-        // Display the word
-        document.getElementById("word").innerHTML = word;
+      const randomIndex = Math.floor(Math.random() * hindiWords.hindiWords.length);
+      const randomWord = hindiWords.hindiWords[randomIndex];
+      
+      // Display word letter by letter with a delay
+      const wordDisplay = document.getElementById('wordDisplay');
+      wordDisplay.textContent = '';
+      displayLetters(wordDisplay, randomWord);
     }
-    
-    // Generate a word when the page loads
-    generateWord();
-</script>
+
+    // Function to display letters of the word with a delay
+    function displayLetters(element, word) {
+      let index = 0;
+      const interval = setInterval(function() {
+        if (index < word.length) {
+          element.textContent += word[index];
+          index++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 100); // Adjust the delay between letters here (in milliseconds)
+    }
+  </script>
 </body>
 </html>
