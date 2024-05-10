@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hindi Word Generator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #word {
+        font-size: 24px;
+        margin-top: 50px;
+    }
+    #nextBtn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    #nextBtn:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+<h1>Hindi Word Generator</h1>
+<div id="word"></div>
+<button id="nextBtn" onclick="generateWord()">Next</button>
+
+<script>
+    // Array of sample words
+    var hindiWords = [
+    "दिल", "प्यार", "ख्वाब", "खुशी", "आसमान", "सपना", "जादू", "मोहब्बत", "बहार", "चाँद",
+    "इश्क़", "उम्मीद", "ग़म", "ज़िन्दगी", "ज़िद", "गीत", "बेहोश", "दुआ", "नज़र", "मुस्कान",
+    "संगीत", "अदा", "रूह", "बारिश", "सुर", "हरदम", "हसीना", "आशिकी", "आवाज़", "मज़ा",
+    "बेवज़ह", "मोहब्बत", "मौसम", "सजना", "बेख़ुदी", "बहार", "चाहत", "दोस्ती", "बरसात", "यार",
+    "हसरत", "दिलबर", "जन्नत", "राहत", "जिंदगी", "आँखें", "मुसाफ़िर", "अफ़साना", "फ़साना", "गुलाब",
+    "सितारा", "फ़रियाद", "अधूरा", "सितम", "बेहद", "दोस्त", "दीवाना", "दिलनशीं", "आहट", "आँसू",
+    "बेख़ुदी", "मस्ती", "आवाज़", "इश्क़", "हसरत", "यारी", "बेरुखी", "खुशियाँ", "चाँदनी", "अफ़साना",
+    "बेमुरावत", "ज़िन्दगी", "सुनहरा", "महोब्बत", "रोशनी", "मुसाफ़िर", "बहार", "दिल", "आँखें", "सपने",
+    "ज़िंदगी", "सागर", "प्यार", "सुकून", "बादल", "आसमान", "ख़्वाब", "बेखुदी", "ग़ज़ल", "गुलाब"
+];
+
+
+    function generateWord() {
+        // Randomly select a word from the array
+        var randomIndex = Math.floor(Math.random() * hindiWords.length);
+        var word = hindiWords[randomIndex];
+        
+        // Display the word
+        document.getElementById("word").innerHTML = word;
+    }
+    
+    // Generate a word when the page loads
+    generateWord();
+</script>
+</body>
+</html>
