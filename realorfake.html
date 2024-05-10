@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real or Fake Game</title>
+    <link rel="stylesheet" href="assets/scss/realorfake.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Real or AI?</h1>
+        <img src="" id="gameImage" alt="Art Image" class="game-image">
+        <div class="buttons">
+            <button id="realButton" class="btn">Real</button>
+            <button id="fakeButton" class="btn">AI</button>
+        </div>
+        <div id="scoreBoard" class="score-board">
+            <p>Score: <span id="score">0</span>/10</p>
+        </div>
+        <div id="result">
+            <!-- Results will be displayed here after the round ends -->
+        </div>
+        <button id="restartButton" class="btn" style="display:none;">Restart Game</button>
+    </div>
+
+    <script src="assets/js/realorfake.js"></script>
+</body>
+</html>
