@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <title>Spot The Difference!</title>
+    <style>
+        body {
+            --primary-color: hsl(258, 95%, 8%);
+            --secondary-color: hsla(258, 97%, 38%, 0.727);
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+    #heading {
+        font-family: "Playfair Display", serif;
+        text-align: center;
+        color: white;
+    }
+        .image-container {
+            position: relative;
+        }
+
+        .im {
+            height: auto;
+            display: block;
+            width:50%
+        }
+        #countdown-button {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: 50px;
+            background-color: rgb(17, 0, 85);
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        #countdown-button:hover {
+            background-color: rgb(144, 2, 204);
+        }
+
+        #restart-button {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: 50px;
+            background-color: rgb(89, 9, 32);
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        #restart-button:hover {
+            background-color: rgb(160, 13, 67);
+        }
+
+        @keyframes blink {
+            0% {
+                color: red;
+            }
+            50% {
+                color: white;
+            }
+            100% {
+                color: red;
+            }
+        }
+
+            /* Add a glow effect */
+        
+        .glow {
+            animation: pulsate 1s infinite;
+        }
+
+        @keyframes pulsate {
+            0% {
+                box-shadow: 0 0 10px 5px #1824a9;
+            }
+            50% {
+                box-shadow: 0 0 20px 10px #9298d6;
+            }
+            100% {
+                box-shadow: 0 0 10px 5px #010d89;
+            }
+        }
+        .score-display {
+            position: fixed;   /* Use fixed or absolute depending on layout */
+            right: 10px;       /* Position it to the right */
+            top: 10px;         /* Position it at the top */
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 16px;
+            z-index: 1000;     /* Make sure it's above other elements */
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);   /* Original size */
+            }
+            50% {
+                transform: scale(1.1); /* Grow a bit */
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 0.5s ease-in-out;
+        }
+        /* Class to be added when game is over */
+        .score-center-large {
+            top: 40%;
+            right: 50%;
+            transform: translate(50%, -50%) scale(1.2); /* Move to center and scale up */
+            font-size: 18px; /* Make font size larger */
+            background-color: #4CAF50; /* Change background to make it stand out */
+            color: white; /* Change text color to make it stand out */
+            position:fixed;
+        }
+
+    </style>
+    <script>
+        
+        var score = 0;
+
+        function addBorder(event) {
+            var target = event.target;
+            target.style.border = '5px solid green';
+        }
+
+        function removeBorder(event) {
+            var target = event.target;
+            target.style.border = 'none';
+        }
+        function highlightObject(event) {
+            var target = event.target;
+            const coords = target.coords.split(',').map(Number);
+            const rect = document.createElement('div');
+            rect.style.position = 'absolute';
+            rect.style.float = 'right';
+            rect.style.border = '3px solid green';
+            rect.style.pointerEvents = 'none';
+
+            if (target.shape === 'rect') {
+                rect.style.left = coords[0] + 'px';
+                rect.style.top = coords[1] + 'px';
+                rect.style.width = (coords[2] - coords[0]) + 'px';
+                rect.style.height = (coords[3] - coords[1]) + 'px';
+            } else if (target.shape === 'circle') {
+                const radius = coords[2];
+                rect.style.left = (coords[0] - radius) + 'px';
+                rect.style.top = (coords[1] - radius) + 'px';
+                rect.style.width = (2 * radius) + 'px';
+                rect.style.height = (2 * radius) + 'px';
+                rect.style.borderRadius = '50%';
+            }
+            document.getElementById('image-container2').appendChild(rect);
+            updateScore();
+            //remove the event listener
+            target.removeEventListener('click', highlightObject);
+
+            
+        }
+        function updateCoordinates() {
+            var image = document.getElementById('image2');
+            var map = document.getElementById('image-map');
+            var areas = map.getElementsByTagName('area');
+
+            var imageWidth = image.offsetWidth;
+            var imageHeight = image.offsetHeight;
+
+            for (var i = 0; i < areas.length; i++) {
+                var coords = areas[i].getAttribute('data-coords').split(',');
+                var newCoords = [];
+
+                for (var j = 0; j < coords.length; j++) {
+                    if (j % 2 === 0) {
+                        newCoords.push(Math.round((coords[j] / image.naturalWidth) * imageWidth));
+                    } else {
+                        newCoords.push(Math.round((coords[j] / image.naturalHeight) * imageHeight));
+                    }
+                }
+
+                areas[i].setAttribute('coords', newCoords.join(','));
+            }
+        }
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     // Get all areas within the map
+        //     var areas = document.querySelectorAll('#image-map area');            
+        //     // Attach click event listener to each area
+        //     areas.forEach(function(area) {
+        //         area.addEventListener('click', highlightObject);
+        //     });
+        // });
+        window.addEventListener('resize', updateCoordinates);
+        window.addEventListener('load', updateCoordinates);
+
+    </script>
+</head>
+<body>
+    <h2 id="heading">Select objects in the image:</h2>
+
+    <div class='image-container' id="image-container1">
+        <img class="im" id="image1" src="static/images/basic_bg.png" alt="Image 1" style="float:left;" >
+    </div>
+    <div class='image-container' id="image-container2">
+        <img class="im" id="image2" src="static/images/basic_bg2.png" alt="Image 2" usemap="#image-map", style="float: right;">
+    </div>
+
+    <map id="image-map" name="image-map">
+        <area target="" alt="" title="" data-coords="628,410,1344,990" shape="rect">
+        <area target="" alt="" title="" data-coords="1129,1755,1035,1830" shape="rect">
+        <area target="" alt="" title="" data-coords="1590,1615,1817,1961" shape="rect">
+        <area target="" alt="" title="" data-coords="1901,1951,2188,2098" shape="rect">
+        <area target="" alt="" title="" data-coords="217,1775,512,1984" shape="rect">
+        <area target="" alt="" title="" data-coords="154,1484,275,1518" shape="rect">
+        <area target="" alt="" title="" data-coords="3397,131,82" shape="circle">
+        <area target="" alt="" title="" data-coords="3259,1866,3418,1984" shape="rect">
+        <area target="" alt="" title="" data-coords="677,1205,814,1445" shape="rect">
+        <area target="" alt="" title="" data-coords="1586,231,1864,580" shape="rect">
+    </map>
+    
+
+    <button id="countdown-button"  onclick="startGame()">Start</button>
+    <button id="restart-button" onclick="resetGame()">Restart Game</button>
+    <div class="score-display" id="score"></div>
+    <script>
+        var score = 0;
+
+        function startGame() {
+            
+            enableGame();
+            startCountdown();
+            
+        }
+        function resetGame(){
+            //reload window
+            //select the countdown button and change the text to start
+            var countdownButton = document.getElementById('countdown-button');
+            countdownButton.innerHTML = 'Restart Game';
+            location.reload();
+        }
+        function endGame() {
+            var areas = document.querySelectorAll('#image-map area');
+            areas.forEach(function (area) {
+                area.removeEventListener('click', highlightObject);
+            });
+            const scoreDisplay = document.getElementById('score');
+            scoreDisplay.innerHTML = 'Game Over! Your score is: ' + score +"/10" + "<br><h1>AI got 7/10:</h1><ul><li><strong>Addition of a painting:</strong> In the second image, there is an additional painting with a geometric design next to the Mona Lisa painting.</li> <li><strong>Presence of a wine glass:</strong> A wine glass appears on the small table in front of the sofa in the second image.</li> <li><strong>Flowers on the shelf:</strong> In the second image, there is a pot of flowers added to the shelf above the sofa.</li> <li><strong>Toys and objects on the floor:</strong> The number and arrangement of toys and objects on the floor differ between the two images. For example, in the second image, there's a teddy bear sitting in front of the sofa and additional toys scattered around.</li> <li><strong>Shoes placement:</strong> The shoes near the bottom right corner of the room are different. In the second image, there is an additional pair of shoes.</li> </ul>";
+            scoreDisplay.classList.add('score-center-large');
+            const restartButton = document.getElementById('restart-button');
+            scoreDisplay.appendChild(restartButton);
+            }
+        function showAndAnimateText() {
+                const textContainer = document.getElementById('gameEndText');
+                textContainer.style.display = 'block'; // Make the container visible
+                setTimeout(() => { textContainer.style.opacity = 1; }, 1); // Start the fade-in effect
+
+                const paragraphs = textContainer.querySelectorAll('p');
+                paragraphs.forEach((paragraph) => {
+                    const originalHtml = paragraph.innerHTML;
+                    const words = originalHtml.split(/\s+/);
+                    paragraph.innerHTML = ''; // Clear the paragraph
+
+                    words.forEach((word, index) => {
+                        const span = document.createElement('span');
+                        span.innerHTML = word + ' ';
+                        span.style.opacity = 0;
+                        paragraph.appendChild(span);
+
+                        setTimeout(() => {
+                            span.style.transition = 'opacity 0.3s ease';
+                            span.style.opacity = 1;
+                        }, 100 * index);
+                    });
+                });
+            }
+
+        function updateScore() {
+            const scoreDisplay = document.getElementById('score');
+            scoreDisplay.innerHTML = 'Score: ' + ++score;
+            // Add the animation class
+            scoreDisplay.classList.add('pulse-animation');
+
+            // Remove the animation class at the end of the animation
+            scoreDisplay.addEventListener('animationend', () => {
+                scoreDisplay.classList.remove('pulse-animation');
+            });
+        }
+
+        function enableGame(){
+            var areas = document.querySelectorAll('#image-map area');
+            // Attach click event listener to each area
+            areas.forEach(function (area) {
+                area.addEventListener('click', highlightObject);
+            });
+        }
+        function startCountdown() {
+            var countdownButton = document.getElementById('countdown-button');
+            countdownButton.innerHTML = '20';
+
+            var countdownInterval = setInterval(function() {
+                var countdownValue = parseInt(countdownButton.innerHTML);
+                countdownValue--;
+
+                if (countdownValue <= 10) {
+                    countdownButton.style.animation = 'blink 1s infinite';
+                    countdownButton.style.color = 'red';
+                    countdownButton.style.backgroundColor = 'vioetred';
+                }
+
+                countdownButton.innerHTML = countdownValue.toString();
+
+                if (countdownValue <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownButton.innerHTML = 'Game Over';
+                    endGame();
+                }
+            }, 1000);
+        }
+    </script>
+   
+    
+</body>
+</html>
