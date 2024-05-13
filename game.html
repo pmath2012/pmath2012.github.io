@@ -203,7 +203,7 @@
         <img class="im" id="image1" src="static/images/basic_bg.png" alt="Image 1" style="float:left;" >
     </div>
     <div class='image-container' id="image-container2">
-        <img class="im" id="image2" src="static/images/basic_bg2.png" alt="Image 2" usemap="#image-map", style="float: right;">
+        <img class="im" id="image2" src="static/images/basic_bg2.png" alt="Image 2" usemap="#image-map", style="opacity:0; float: right;">
     </div>
 
     <map id="image-map" name="image-map">
@@ -227,7 +227,8 @@
         var score = 0;
 
         function startGame() {
-            
+            const image2 = document.getElementById('image2');
+            image2.style.opacity = 1;
             enableGame();
             startCountdown();
             
