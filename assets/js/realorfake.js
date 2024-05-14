@@ -1,5 +1,5 @@
 const realImages = ['jan_wyck_the_battle_of_the_boyne.jpg','leech_covent_garden.jpg','mainie_jellet_decoration.jpg','monet_single_sailboat.jpg','tree.jpg','meadow.jpg','van_gogh_starry_night.jpg','house.jpg','mrT_ssavaart.jpg']; // Add real images filenames
-const fakeImages = ['art_nouveau.png', 'tree.png','col.png','flower_gate.png','starry_night_v2.png','sunflower_field.png','soldirs_field.png','alan_rickman.png', 'lady_1.png','lady_2.png','garbage.png']; // Add AI-generated images filenames
+const fakeImages = ['cityskyline.png','art_nouveau.png', 'tree.png','col.png','flower_gate.png','starry_night_v2.png','sunflower_field.png','soldirs_field.png','alan_rickman.png', 'lady_1.png','lady_2.png','garbage.png']; // Add AI-generated images filenames
 let usedImages = []; // Array to keep track of used images
 let score = 0;
 let rounds = 0;
