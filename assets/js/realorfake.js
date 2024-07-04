@@ -1,5 +1,5 @@
 const realImages = ['jan_wyck_the_battle_of_the_boyne.jpg','leech_covent_garden.jpg','mainie_jellet_decoration.jpg','monet_single_sailboat.jpg','tree.jpg','meadow.jpg','van_gogh_starry_night.jpg','house.jpg','mrT_ssavaart.jpg']; // Add real images filenames
-const fakeImages = ['illiad.png','abstract_1.png','cityskyline.png','art_nouveau.png', 'tree.png','col.png','flower_gate.png','starry_night_v2.png','sunflower_field.png','soldirs_field.png','alan_rickman.png', 'lady_1.png','lady_2.png','garbage.png']; // Add AI-generated images filenames
+const fakeImages = ['portrait_of_a_lady.png','illiad.png','abstract_1.png','cityskyline.png','art_nouveau.png', 'tree.png','col.png','flower_gate.png','starry_night_v2.png','sunflower_field.png','soldirs_field.png','alan_rickman.png', 'lady_1.png','lady_2.png','garbage.png']; // Add AI-generated images filenames
 let usedImages = []; // Array to keep track of used images
 let score = 0;
 let rounds = 0;
@@ -27,6 +27,7 @@ const imageDescriptions = {
     'garbage.png': 'generate a surreal style painting. the scene signifies the decay of society. buildings are tattered and overgrown, there is decaying garbage which some animals are eating. predominant colors are muted greys, dull greens and sad blues. ',
     'abstract_1.png': 'AI-generated abstract image. do an abstract piece in the color field style. the colors are a mix of muted reds, vibrant yellows and dull greens. there are hints of blacks and white. the colors are meant to represent the natural colors of the world but how pollution has contaminated the natural color pallete',
     'illiad.png': 'Prompt : depict a scene from the Illiad by Homer',
+    'portrait_of_a_lady.png': 'Prompt : can you paint a portrait of a lady. use muted colors and a chiaroscuro style. the canvas is rough grain and the brush strokes are prominent'
 };
 
 function loadImage() {
