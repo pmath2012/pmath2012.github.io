@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -11,55 +12,84 @@ html, body {
 
 body::before {
     content: "";
-    position: fixed; /* Ensures the dots are not affected by scrolling */
+    position: fixed;
+    /* Ensures the dots are not affected by scrolling */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-image: radial-gradient(circle, white 1px, transparent 1px);
-    background-size: 30px 30px; /* Adjust size for visible dots */
-    opacity: 0.5; /* Adjust opacity for better visibility */
-    z-index: -1; /* Ensures it's behind the content */
-    pointer-events: none; /* Allows clicks to pass through */
+    background-size: 30px 30px;
+    /* Adjust size for visible dots */
+    opacity: 0.5;
+    /* Adjust opacity for better visibility */
+    z-index: -1;
+    /* Ensures it's behind the content */
+    pointer-events: none;
+    /* Allows clicks to pass through */
 }
 
 .game-container {
     position: relative;
-    width: 80%;
-    max-width: 960px;
+    width: 90%;
+    max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
     box-shadow: 0 0 10px #ccc;
     background: rgba(255, 255, 255, 0.105);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-container {
+    width: 100%;
+    height: 70vh;
+    /* Adjust the height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    /* Space between image and controls */
 }
 
 .game-image {
-    height: 400px;
+    max-height: 100%;
     width: auto;
-    margin-bottom: 20px;
-    background-color: #f8f8f815; /* Slight grey background for image */
-    padding: 10px; /* Padding around the image */
-    transition: box-shadow 0.5s ease; /* Smooth transition for glow effect */
+    background-color: #f8f8f815;
+    /* Slight grey background for image */
+    padding: 10px;
+    /* Padding around the image */
+    transition: box-shadow 0.5s ease;
+    /* Smooth transition for glow effect */
 }
 
 /* Glow effects on correct and incorrect answers */
 .game-image.correct {
-    box-shadow: 0 0 15px 10px #28a745; /* Green glow */
+    box-shadow: 0 0 15px 10px #28a745;
+    /* Green glow */
 }
 
 .game-image.incorrect {
-    box-shadow: 0 0 15px 10px #dc3545; /* Red glow */
+    box-shadow: 0 0 15px 10px #dc3545;
+    /* Red glow */
 }
 
-.score-board.highlight {
-    font-size: 24px; /* Larger font size for highlighted score */
-    color: #630606; /* Change color to make it more prominent */
+.controls {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Align items to the center */
 }
 
-.button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
 }
+
 .buttons button {
     margin: 10px;
     padding: 10px 20px;
@@ -74,42 +104,74 @@ body::before {
 }
 
 .buttons button:hover {
-    transform: scale(1.1); /* Zoom effect on hover */
+    transform: scale(1.1);
+    /* Zoom effect on hover */
 }
 
-.score-board {
-    margin-top: 20px;
+#description {
+    text-align: center;
+    /* Align text to the center */
+    font-size: 20px;
+        /* Increased font size */
+    color: white;
+        /* Change color to white */
+    margin: 20px 0;
 }
 
-#restartButton {
+#nextButton {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 16px; 
     margin-top: 20px;
     cursor: pointer;
     background-color: #28a745;
     transition: background-color 0.3s ease;
 }
 
-#restartButton:hover {
+#nextButton:hover {
     background-color: #218838;
 }
 
-/* Constellation-style dots */
+.button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.score-board {
+    margin-top: 20px;
+    text-align: center;
+    /* Align text to the center */
+}
+
+.score-board.highlight {
+    font-size: 24px;
+    /* Larger font size for highlighted score */
+    color: #630606;
+    /* Change color to make it more prominent */
+}
+
 #restartButton {
-    display: none; /* Initially hidden */
-    margin: 20px auto; /* Center the button horizontally */
+    display: none;
+    /* Initially hidden */
+    margin: 20px 0;
+    /* Adjust margin */
     padding: 10px 20px;
     font-size: 16px;
-    color: white; /* Text color */
-    background-color: #28a745; /* Green background */
+    color: white;
+    /* Text color */
+    background-color: #28a745;
+    /* Green background */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-    outline: none; /* Removes outline */
-    width: 200px; /* Fixed width for consistency */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for hover effect */
+    outline: none;
+    /* Removes outline */
+    width: 100%;
+    /* Full width */
 }
 
 #restartButton:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #218838;
+    /* Darker green on hover */
 }
